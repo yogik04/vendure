@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  align-content: flex-start;
+  align-content: center;
   justify-items: center;
   min-width: 0;
   min-height: 0;
@@ -44,12 +44,14 @@
 }
 .checkout {
   background: rgba(255, 255, 255, 1);
-  width: 1600px;
-  height: 1455px;
+  width: 1686px;
+  height: 1471px;
   display: block;
   overflow: hidden;
-  padding-left: 64px;
-  margin-left: 0px;
+  padding-left: 0px;
+  margin-left: 77px;
+  padding-right: 0px;
+  margin-right: 0px;
   flex-shrink: 0;
 }
 .autoLayout {
@@ -3971,16 +3973,21 @@
   position: relative;
 }
 .frame1534 {
-  width: auto;
+  width: 100%;
   height: auto;
   display: flex;
   position: relative;
   flex-direction: column;
+  max-width: 359px;
+  padding-right: 0px;
+  margin-right: 9px;
+  min-width: 0;
 }
 .frame1534 > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  min-width: 0;
   margin-top: calc(0px - 24px);
   height: calc(100% + 24px);
 }
