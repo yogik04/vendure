@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 27">
+  <path d="M1.407 7.376A13.339 13.339 0 0013.34 26.678h5.088L9.422 13.572a.411.411 0 010-.466L18.427 0h-5.088A13.339 13.339 0 001.407 7.376z" fill="url(#UcKPkr94Tfa)"/>
+  <path d="M6.133 19.302A13.34 13.34 0 0118.065 0h5.088l-3.87 11.243a19.545 19.545 0 00-5.216-2.25l-1.403-.376 1.13 5.526a15 15 0 0010.813 11.484l3.855 1.033.013.018h-10.41a13.34 13.34 0 01-11.932-7.376z" fill="url(#UcKPkr94Tfb)"/>
+  <path d="M13.377 14.368A15 15 0 0024.183 25.81l1.968.527-3.288.305a14.88 14.88 0 01-14.203-7.24l-2.701-4.57a17.222 17.222 0 017.418-.465z" fill="url(#UcKPkr94Tfc)"/>
+  <path d="M13.326 11.46a21.57 21.57 0 0015.222 15.187l.013.048h-3.494a15 15 0 01-13.809-9.142l-2.834-6.68a20.7 20.7 0 014.902.587z" fill="url(#UcKPkr94Tfd)"/>
+  <defs>
+    <linearGradient id="UcKPkr94Tfa" x1="12.194" y1="26.678" x2="23.032" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#28356A"/>
+      <stop offset="1" stop-color="#0C7CFF"/>
+    </linearGradient>
+    <linearGradient id="UcKPkr94Tfb" x1="11.354" y1="3.086" x2="23.169" y2="14.472" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2F88FF"/>
+      <stop offset="1" stop-color="#1D68CD"/>
+    </linearGradient>
+    <linearGradient id="UcKPkr94Tfc" x1="16.055" y1="14.161" x2="16.055" y2="26.708" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A000"/>
+      <stop offset="1" stop-color="#E46E00"/>
+    </linearGradient>
+    <linearGradient id="UcKPkr94Tfd" x1="18.493" y1="10.873" x2="18.493" y2="26.695" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FD6020"/>
+      <stop offset="1" stop-color="#E32900"/>
+    </linearGradient>
+  </defs>
+</svg>
