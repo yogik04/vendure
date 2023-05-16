@@ -12,18 +12,24 @@ import * as React from "react";
 import * as p from "@plasmicapp/react-web";
 import * as ph from "@plasmicapp/react-web/lib/host";
 import {
+  hasVariant,
   classNames,
   createPlasmicElementProxy,
-  deriveRenderOpts
+  deriveRenderOpts,
+  ensureGlobalVariants
 } from "@plasmicapp/react-web";
 import { GraphqlFetcher } from "@plasmicpkgs/plasmic-query"; // plasmic-import: 0DrxdjD45dkx/codeComponent
+import TextInput from "../../TextInput"; // plasmic-import: cCj1_sGjvIg/component
+import Select from "../../Select"; // plasmic-import: fiUCxPZTvEF/component
+import Checkbox from "../../Checkbox"; // plasmic-import: vb1QUxha3Z1/component
+import Button from "../../Button"; // plasmic-import: zBoDUyhIZ2-/component
+import { useScreenVariants as useScreenVariants_4KbgCRpLchNz } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 4KbgC_RpLCHNz/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_blank_project.module.css"; // plasmic-import: v6rm6377AjoXq4p4U21fc/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: SddgXxYkSH1_/css
 import Frame330Icon from "./icons/PlasmicIcon__Frame330"; // plasmic-import: kRvNqj_hp/icon
 import TextIcon from "./icons/PlasmicIcon__Text"; // plasmic-import: RtPZ5IgjyA/icon
 import Vector11Icon from "./icons/PlasmicIcon__Vector11"; // plasmic-import: vxefrBbIIE/icon
-import Vector15Icon from "./icons/PlasmicIcon__Vector15"; // plasmic-import: j51EcApPSL/icon
 import VisaLogoIcon from "./icons/PlasmicIcon__VisaLogo"; // plasmic-import: UAuUx5seER/icon
 import G46Icon from "./icons/PlasmicIcon__G46"; // plasmic-import: DjIfo8SnoUr/icon
 import G50Icon from "./icons/PlasmicIcon__G50"; // plasmic-import: z5v_VCw6S34/icon
@@ -32,16 +38,15 @@ import G58Icon from "./icons/PlasmicIcon__G58"; // plasmic-import: j4co-vWAd24/i
 import Frame300Icon from "./icons/PlasmicIcon__Frame300"; // plasmic-import: TyrG9uPmsuC/icon
 import Ellipse1Icon from "./icons/PlasmicIcon__Ellipse1"; // plasmic-import: POkQbYLKhYU/icon
 import Vector86Icon from "./icons/PlasmicIcon__Vector86"; // plasmic-import: ZYdLbyqEg6N/icon
-import BxbxsCreditCardIcon from "./icons/PlasmicIcon__BxbxsCreditCard"; // plasmic-import: zacBd-3SlKw/icon
 import icon4QPy4R10W5 from "./images/icon.svg"; // plasmic-import: 4qPY4R10W5/picture
-import onWQrnijwPsu from "./images/on.svg"; // plasmic-import: WQrnijwPSU/picture
-import on2B11R3UtDiU from "./images/on2.svg"; // plasmic-import: B11r3UtDiU/picture
 import octiconinfo24D68Eftttue from "./images/octiconinfo24.svg"; // plasmic-import: D68eftttue/picture
 import octiconinfo242EOvuQhAyok from "./images/octiconinfo242.svg"; // plasmic-import: EOvuQhAyok/picture
+import on2B11R3UtDiU from "./images/on2.svg"; // plasmic-import: B11r3UtDiU/picture
 import discoverM64ZgdKi0V from "./images/discover.svg"; // plasmic-import: m64ZGDKi0v/picture
 import maestroYhsOz8Lx8I from "./images/maestro.svg"; // plasmic-import: YHSOz8LX8I/picture
 import mastercard4WwLedzbKz from "./images/mastercard.svg"; // plasmic-import: 4WwLedzbKZ/picture
 import g12D0Q481ZoLh from "./images/g12.svg"; // plasmic-import: D0Q481ZoLH/picture
+import onWQrnijwPsu from "./images/on.svg"; // plasmic-import: WQrnijwPSU/picture
 import afterpayLogoOeWKxd5LOg from "./images/afterpayLogo.svg"; // plasmic-import: oeWKxd5LOg/picture
 import frame2994EfwKiv79E from "./images/frame299.svg"; // plasmic-import: 4EfwKIV79e/picture
 import frame298N3KvM0KGmL from "./images/frame298.svg"; // plasmic-import: n3kvM0KGmL-/picture
@@ -71,6 +76,184 @@ function PlasmicHomepage__RenderFunc(props) {
   const $refs = refsRef.current;
   const currentUser = p.useCurrentUser?.() || {};
   const [$queries, setDollarQueries] = React.useState({});
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput6.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput7.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "select2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "select3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput8.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "checkbox4.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox5.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox6.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox7.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput9.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput10.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput11.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "textInput12.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "checkbox8.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox9.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox10.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox11.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox12.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox13.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox14.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox15.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput13.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      }
+    ],
+
+    [$props, $ctx]
+  );
+  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_4KbgCRpLchNz()
+  });
   return (
     <React.Fragment>
       <div className={projectcss.plasmic_page_wrapper}>
@@ -117,14 +300,22 @@ function PlasmicHomepage__RenderFunc(props) {
           >
             <ph.DataCtxReader>
               {$ctx => (
-                <div className={classNames(projectcss.all, sty.freeBox__s5Jv)}>
+                <form
+                  data-plasmic-name={"form"}
+                  data-plasmic-override={overrides.form}
+                  action={
+                    "https://www.hashemian.com/tools/form-post-tester.php/"
+                  }
+                  className={classNames(projectcss.all, sty.form)}
+                  method={"post"}
+                >
                   <div
                     data-plasmic-name={"checkout"}
                     data-plasmic-override={overrides.checkout}
                     className={classNames(projectcss.all, sty.checkout)}
                   >
                     <p.Stack
-                      as={"div"}
+                      as={"form"}
                       data-plasmic-name={"autoLayout"}
                       data-plasmic-override={overrides.autoLayout}
                       hasGap={true}
@@ -232,11 +423,15 @@ function PlasmicHomepage__RenderFunc(props) {
                         </p.Stack>
                       </p.Stack>
                       <p.Stack
-                        as={"div"}
+                        as={"form"}
                         data-plasmic-name={"forms"}
                         data-plasmic-override={overrides.forms}
                         hasGap={true}
+                        action={
+                          "https://www.hashemian.com/tools/form-post-tester.php/123submit"
+                        }
                         className={classNames(projectcss.all, sty.forms)}
+                        method={"post"}
                       >
                         <p.Stack
                           as={"div"}
@@ -255,6 +450,51 @@ function PlasmicHomepage__RenderFunc(props) {
                               sty.frame1509
                             )}
                           >
+                            {(
+                              hasVariant(globalVariants, "screen", "mobileOnly")
+                                ? true
+                                : true
+                            ) ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__nLtmm
+                                )}
+                              >
+                                {(
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? true
+                                    : true
+                                ) ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___15Avc
+                                    )}
+                                  />
+                                ) : null}
+                                {(
+                                  hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobileOnly"
+                                  )
+                                    ? true
+                                    : true
+                                ) ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__a1A5X
+                                    )}
+                                  />
+                                ) : null}
+                              </div>
+                            ) : null}
                             <div
                               className={classNames(
                                 projectcss.all,
@@ -301,32 +541,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.frame272
                                   )}
                                 >
-                                  <div
-                                    data-plasmic-name={"searchForSometingFun"}
-                                    data-plasmic-override={
-                                      overrides.searchForSometingFun
-                                    }
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.searchForSometingFun
-                                    )}
-                                  >
-                                    <div
-                                      data-plasmic-name={
-                                        "searchForSometingFun2"
-                                      }
-                                      data-plasmic-override={
-                                        overrides.searchForSometingFun2
-                                      }
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.searchForSometingFun2
-                                      )}
-                                    >
-                                      {"Input"}
-                                    </div>
-                                  </div>
                                   {false ? (
                                     <div
                                       data-plasmic-name={"frame271"}
@@ -337,6 +551,33 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )}
                                     />
                                   ) : null}
+                                  <TextInput
+                                    data-plasmic-name={"textInput"}
+                                    data-plasmic-override={overrides.textInput}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.textInput
+                                    )}
+                                    name={"phone"}
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "textInput",
+                                        "value"
+                                      ])(
+                                        (e => e.target?.value).apply(
+                                          null,
+                                          eventArgs
+                                        )
+                                      );
+                                    }}
+                                    placeholder={"mobile number"}
+                                    value={
+                                      p.generateStateValueProp($state, [
+                                        "textInput",
+                                        "value"
+                                      ]) ?? ""
+                                    }
+                                  />
                                 </div>
                               </p.Stack>
                               <p.Stack
@@ -466,7 +707,16 @@ function PlasmicHomepage__RenderFunc(props) {
                                         sty.searchForSometingFun4
                                       )}
                                     >
-                                      {"Input"}
+                                      {(() => {
+                                        try {
+                                          return undefined;
+                                        } catch (e) {
+                                          if (e instanceof TypeError) {
+                                            return "Input";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
                                     </div>
                                   </div>
                                   {false ? (
@@ -479,6 +729,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )}
                                     />
                                   ) : null}
+                                  <TextInput
+                                    data-plasmic-name={"textInput2"}
+                                    data-plasmic-override={overrides.textInput2}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.textInput2
+                                    )}
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "textInput2",
+                                        "value"
+                                      ])(
+                                        (e => e.target?.value).apply(
+                                          null,
+                                          eventArgs
+                                        )
+                                      );
+                                    }}
+                                    value={
+                                      p.generateStateValueProp($state, [
+                                        "textInput2",
+                                        "value"
+                                      ]) ?? ""
+                                    }
+                                  />
                                 </div>
                               </p.Stack>
                               <p.Stack
@@ -510,32 +785,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.frame275
                                   )}
                                 >
-                                  <div
-                                    data-plasmic-name={"searchForSometingFun5"}
-                                    data-plasmic-override={
-                                      overrides.searchForSometingFun5
-                                    }
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.searchForSometingFun5
-                                    )}
-                                  >
-                                    <div
-                                      data-plasmic-name={
-                                        "searchForSometingFun6"
-                                      }
-                                      data-plasmic-override={
-                                        overrides.searchForSometingFun6
-                                      }
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.searchForSometingFun6
-                                      )}
-                                    >
-                                      {"Input"}
-                                    </div>
-                                  </div>
                                   {false ? (
                                     <div
                                       data-plasmic-name={"frame276"}
@@ -546,6 +795,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )}
                                     />
                                   ) : null}
+                                  <TextInput
+                                    data-plasmic-name={"textInput3"}
+                                    data-plasmic-override={overrides.textInput3}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.textInput3
+                                    )}
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "textInput3",
+                                        "value"
+                                      ])(
+                                        (e => e.target?.value).apply(
+                                          null,
+                                          eventArgs
+                                        )
+                                      );
+                                    }}
+                                    value={
+                                      p.generateStateValueProp($state, [
+                                        "textInput3",
+                                        "value"
+                                      ]) ?? ""
+                                    }
+                                  />
                                 </div>
                               </p.Stack>
                             </p.Stack>
@@ -575,30 +849,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.frame277
                                 )}
                               >
-                                <div
-                                  data-plasmic-name={"searchForSometingFun7"}
-                                  data-plasmic-override={
-                                    overrides.searchForSometingFun7
-                                  }
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.searchForSometingFun7
-                                  )}
-                                >
-                                  <div
-                                    data-plasmic-name={"searchForSometingFun8"}
-                                    data-plasmic-override={
-                                      overrides.searchForSometingFun8
-                                    }
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.searchForSometingFun8
-                                    )}
-                                  >
-                                    {"Input"}
-                                  </div>
-                                </div>
                                 {false ? (
                                   <div
                                     data-plasmic-name={"frame278"}
@@ -609,6 +859,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                     )}
                                   />
                                 ) : null}
+                                <TextInput
+                                  data-plasmic-name={"textInput4"}
+                                  data-plasmic-override={overrides.textInput4}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.textInput4
+                                  )}
+                                  onChange={(...eventArgs) => {
+                                    p.generateStateOnChangeProp($state, [
+                                      "textInput4",
+                                      "value"
+                                    ])(
+                                      (e => e.target?.value).apply(
+                                        null,
+                                        eventArgs
+                                      )
+                                    );
+                                  }}
+                                  value={
+                                    p.generateStateValueProp($state, [
+                                      "textInput4",
+                                      "value"
+                                    ]) ?? ""
+                                  }
+                                />
                               </div>
                             </p.Stack>
                             <p.Stack
@@ -637,30 +912,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.frame279
                                 )}
                               >
-                                <div
-                                  data-plasmic-name={"searchForSometingFun9"}
-                                  data-plasmic-override={
-                                    overrides.searchForSometingFun9
-                                  }
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.searchForSometingFun9
-                                  )}
-                                >
-                                  <div
-                                    data-plasmic-name={"searchForSometingFun10"}
-                                    data-plasmic-override={
-                                      overrides.searchForSometingFun10
-                                    }
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.searchForSometingFun10
-                                    )}
-                                  >
-                                    {"Input"}
-                                  </div>
-                                </div>
                                 {false ? (
                                   <div
                                     data-plasmic-name={"frame280"}
@@ -671,6 +922,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                     )}
                                   />
                                 ) : null}
+                                <TextInput
+                                  data-plasmic-name={"textInput5"}
+                                  data-plasmic-override={overrides.textInput5}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.textInput5
+                                  )}
+                                  onChange={(...eventArgs) => {
+                                    p.generateStateOnChangeProp($state, [
+                                      "textInput5",
+                                      "value"
+                                    ])(
+                                      (e => e.target?.value).apply(
+                                        null,
+                                        eventArgs
+                                      )
+                                    );
+                                  }}
+                                  value={
+                                    p.generateStateValueProp($state, [
+                                      "textInput5",
+                                      "value"
+                                    ]) ?? ""
+                                  }
+                                />
                               </div>
                             </p.Stack>
                             <p.Stack
@@ -699,30 +975,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.frame281
                                 )}
                               >
-                                <div
-                                  data-plasmic-name={"searchForSometingFun11"}
-                                  data-plasmic-override={
-                                    overrides.searchForSometingFun11
-                                  }
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.searchForSometingFun11
-                                  )}
-                                >
-                                  <div
-                                    data-plasmic-name={"searchForSometingFun12"}
-                                    data-plasmic-override={
-                                      overrides.searchForSometingFun12
-                                    }
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.searchForSometingFun12
-                                    )}
-                                  >
-                                    {"Input"}
-                                  </div>
-                                </div>
                                 {false ? (
                                   <div
                                     data-plasmic-name={"frame282"}
@@ -733,6 +985,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                     )}
                                   />
                                 ) : null}
+                                <TextInput
+                                  data-plasmic-name={"textInput6"}
+                                  data-plasmic-override={overrides.textInput6}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.textInput6
+                                  )}
+                                  onChange={(...eventArgs) => {
+                                    p.generateStateOnChangeProp($state, [
+                                      "textInput6",
+                                      "value"
+                                    ])(
+                                      (e => e.target?.value).apply(
+                                        null,
+                                        eventArgs
+                                      )
+                                    );
+                                  }}
+                                  value={
+                                    p.generateStateValueProp($state, [
+                                      "textInput6",
+                                      "value"
+                                    ]) ?? ""
+                                  }
+                                />
                               </div>
                             </p.Stack>
                             <p.Stack
@@ -761,30 +1038,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.frame283
                                 )}
                               >
-                                <div
-                                  data-plasmic-name={"searchForSometingFun13"}
-                                  data-plasmic-override={
-                                    overrides.searchForSometingFun13
-                                  }
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.searchForSometingFun13
-                                  )}
-                                >
-                                  <div
-                                    data-plasmic-name={"searchForSometingFun14"}
-                                    data-plasmic-override={
-                                      overrides.searchForSometingFun14
-                                    }
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.searchForSometingFun14
-                                    )}
-                                  >
-                                    {"Input"}
-                                  </div>
-                                </div>
                                 {false ? (
                                   <div
                                     data-plasmic-name={"frame284"}
@@ -795,6 +1048,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                     )}
                                   />
                                 ) : null}
+                                <TextInput
+                                  data-plasmic-name={"textInput7"}
+                                  data-plasmic-override={overrides.textInput7}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.textInput7
+                                  )}
+                                  onChange={(...eventArgs) => {
+                                    p.generateStateOnChangeProp($state, [
+                                      "textInput7",
+                                      "value"
+                                    ])(
+                                      (e => e.target?.value).apply(
+                                        null,
+                                        eventArgs
+                                      )
+                                    );
+                                  }}
+                                  value={
+                                    p.generateStateValueProp($state, [
+                                      "textInput7",
+                                      "value"
+                                    ]) ?? ""
+                                  }
+                                />
                               </div>
                             </p.Stack>
                             <p.Stack
@@ -838,30 +1116,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.frame285
                                   )}
                                 >
-                                  <div
-                                    data-plasmic-name={"input"}
-                                    data-plasmic-override={overrides.input}
+                                  <Select
+                                    data-plasmic-name={"select"}
+                                    data-plasmic-override={overrides.select}
                                     className={classNames(
-                                      projectcss.all,
-                                      sty.input
+                                      "__wab_instance",
+                                      sty.select
                                     )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__fCy1
-                                      )}
-                                    >
-                                      {"Input"}
-                                    </div>
-                                  </div>
-                                  <Vector15Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__zay0H
-                                    )}
-                                    role={"img"}
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "select",
+                                        "value"
+                                      ])(eventArgs[0]);
+                                    }}
+                                    options={[
+                                      { value: "option1", label: "Option 1" },
+                                      { value: "option2", label: "Option 2" }
+                                    ]}
+                                    value={p.generateStateValueProp($state, [
+                                      "select",
+                                      "value"
+                                    ])}
                                   />
                                 </div>
                               </p.Stack>
@@ -892,30 +1167,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.frame286
                                   )}
                                 >
-                                  <div
-                                    data-plasmic-name={"input2"}
-                                    data-plasmic-override={overrides.input2}
+                                  <Select
+                                    data-plasmic-name={"select2"}
+                                    data-plasmic-override={overrides.select2}
                                     className={classNames(
-                                      projectcss.all,
-                                      sty.input2
+                                      "__wab_instance",
+                                      sty.select2
                                     )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__qhxG5
-                                      )}
-                                    >
-                                      {"Input"}
-                                    </div>
-                                  </div>
-                                  <Vector15Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg___7MxX
-                                    )}
-                                    role={"img"}
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "select2",
+                                        "value"
+                                      ])(eventArgs[0]);
+                                    }}
+                                    options={[
+                                      { value: "option1", label: "Option 1" },
+                                      { value: "option2", label: "Option 2" }
+                                    ]}
+                                    value={p.generateStateValueProp($state, [
+                                      "select2",
+                                      "value"
+                                    ])}
                                   />
                                 </div>
                               </p.Stack>
@@ -950,30 +1222,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.frame287
                                   )}
                                 >
-                                  <div
-                                    data-plasmic-name={"input3"}
-                                    data-plasmic-override={overrides.input3}
+                                  <Select
+                                    data-plasmic-name={"select3"}
+                                    data-plasmic-override={overrides.select3}
                                     className={classNames(
-                                      projectcss.all,
-                                      sty.input3
+                                      "__wab_instance",
+                                      sty.select3
                                     )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__wu6I
-                                      )}
-                                    >
-                                      {"Input"}
-                                    </div>
-                                  </div>
-                                  <Vector15Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__iKfb
-                                    )}
-                                    role={"img"}
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "select3",
+                                        "value"
+                                      ])(eventArgs[0]);
+                                    }}
+                                    options={[
+                                      { value: "option1", label: "Option 1" },
+                                      { value: "option2", label: "Option 2" }
+                                    ]}
+                                    value={p.generateStateValueProp($state, [
+                                      "select3",
+                                      "value"
+                                    ])}
                                   />
                                 </div>
                               </p.Stack>
@@ -1005,30 +1274,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.frame288
                                 )}
                               >
-                                <div
-                                  data-plasmic-name={"searchForSometingFun15"}
-                                  data-plasmic-override={
-                                    overrides.searchForSometingFun15
-                                  }
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.searchForSometingFun15
-                                  )}
-                                >
-                                  <div
-                                    data-plasmic-name={"searchForSometingFun16"}
-                                    data-plasmic-override={
-                                      overrides.searchForSometingFun16
-                                    }
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.searchForSometingFun16
-                                    )}
-                                  >
-                                    {"Input"}
-                                  </div>
-                                </div>
                                 {false ? (
                                   <div
                                     data-plasmic-name={"frame289"}
@@ -1039,6 +1284,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                     )}
                                   />
                                 ) : null}
+                                <TextInput
+                                  data-plasmic-name={"textInput8"}
+                                  data-plasmic-override={overrides.textInput8}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.textInput8
+                                  )}
+                                  onChange={(...eventArgs) => {
+                                    p.generateStateOnChangeProp($state, [
+                                      "textInput8",
+                                      "value"
+                                    ])(
+                                      (e => e.target?.value).apply(
+                                        null,
+                                        eventArgs
+                                      )
+                                    );
+                                  }}
+                                  value={
+                                    p.generateStateValueProp($state, [
+                                      "textInput8",
+                                      "value"
+                                    ]) ?? ""
+                                  }
+                                />
                               </div>
                             </p.Stack>
                           </p.Stack>
@@ -1097,39 +1367,32 @@ function PlasmicHomepage__RenderFunc(props) {
                                       sty.radio
                                     )}
                                   >
-                                    <p.PlasmicImg
-                                      alt={""}
-                                      className={classNames(sty.img__eSyX)}
-                                      displayHeight={"18px"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"18px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: onWQrnijwPsu,
-                                        fullWidth: 18,
-                                        fullHeight: 18,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-
-                                    <div
-                                      data-plasmic-name={"creditCard"}
+                                    <Checkbox
+                                      data-plasmic-name={"checkbox5"}
                                       data-plasmic-override={
-                                        overrides.creditCard
+                                        overrides.checkbox5
                                       }
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.creditCard
+                                        "__wab_instance",
+                                        sty.checkbox5
                                       )}
+                                      isChecked={
+                                        p.generateStateValueProp($state, [
+                                          "checkbox5",
+                                          "isChecked"
+                                        ]) ?? false
+                                      }
+                                      onChange={(...eventArgs) => {
+                                        p.generateStateOnChangeProp($state, [
+                                          "checkbox5",
+                                          "isChecked"
+                                        ])(eventArgs[0]);
+                                      }}
                                     >
                                       {
                                         "Express shipping (averages 1 to 4 businessdays)"
                                       }
-                                    </div>
+                                    </Checkbox>
                                   </p.Stack>
                                   <div
                                     className={classNames(
@@ -1159,49 +1422,31 @@ function PlasmicHomepage__RenderFunc(props) {
                                       sty.radio2
                                     )}
                                   >
-                                    <p.PlasmicImg
-                                      alt={""}
-                                      className={classNames(sty.img__h1Zmc)}
-                                      displayHeight={"18px"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"18px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: on2B11R3UtDiU,
-                                        fullWidth: 18,
-                                        fullHeight: 18,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-
-                                    <div
-                                      data-plasmic-name={"creditCard2"}
+                                    <Checkbox
+                                      data-plasmic-name={"checkbox4"}
                                       data-plasmic-override={
-                                        overrides.creditCard2
+                                        overrides.checkbox4
                                       }
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.creditCard2
+                                        "__wab_instance",
+                                        sty.checkbox4
                                       )}
-                                    >
-                                      {
-                                        "Standard Shipping (averages 3 to 7 business days)"
+                                      isChecked={
+                                        p.generateStateValueProp($state, [
+                                          "checkbox4",
+                                          "isChecked"
+                                        ]) ?? false
                                       }
-                                    </div>
+                                      onChange={(...eventArgs) => {
+                                        p.generateStateOnChangeProp($state, [
+                                          "checkbox4",
+                                          "isChecked"
+                                        ])(eventArgs[0]);
+                                      }}
+                                    >
+                                      {"Normal delivery"}
+                                    </Checkbox>
                                   </p.Stack>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__d4As5
-                                    )}
-                                  >
-                                    {"$9.95"}
-                                  </div>
                                 </div>
                               </div>
                               <p.Stack
@@ -1299,37 +1544,30 @@ function PlasmicHomepage__RenderFunc(props) {
                                       sty.radio3
                                     )}
                                   >
-                                    <p.PlasmicImg
-                                      alt={""}
-                                      className={classNames(sty.img__nwpQ)}
-                                      displayHeight={"18px"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"18px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: on2B11R3UtDiU,
-                                        fullWidth: 18,
-                                        fullHeight: 18,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-
-                                    <div
-                                      data-plasmic-name={"creditCard3"}
+                                    <Checkbox
+                                      data-plasmic-name={"checkbox7"}
                                       data-plasmic-override={
-                                        overrides.creditCard3
+                                        overrides.checkbox7
                                       }
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.creditCard3
+                                        "__wab_instance",
+                                        sty.checkbox7
                                       )}
+                                      isChecked={
+                                        p.generateStateValueProp($state, [
+                                          "checkbox7",
+                                          "isChecked"
+                                        ]) ?? false
+                                      }
+                                      onChange={(...eventArgs) => {
+                                        p.generateStateOnChangeProp($state, [
+                                          "checkbox7",
+                                          "isChecked"
+                                        ])(eventArgs[0]);
+                                      }}
                                     >
-                                      {"No Thanks"}
-                                    </div>
+                                      {"No thanks"}
+                                    </Checkbox>
                                   </p.Stack>
                                 </div>
                                 <div
@@ -1350,37 +1588,30 @@ function PlasmicHomepage__RenderFunc(props) {
                                       sty.radio4
                                     )}
                                   >
-                                    <p.PlasmicImg
-                                      alt={""}
-                                      className={classNames(sty.img__cfz4J)}
-                                      displayHeight={"18px"}
-                                      displayMaxHeight={"none"}
-                                      displayMaxWidth={"100%"}
-                                      displayMinHeight={"0"}
-                                      displayMinWidth={"0"}
-                                      displayWidth={"18px"}
-                                      loading={"lazy"}
-                                      src={{
-                                        src: onWQrnijwPsu,
-                                        fullWidth: 18,
-                                        fullHeight: 18,
-                                        aspectRatio: 1
-                                      }}
-                                    />
-
-                                    <div
-                                      data-plasmic-name={"creditCard4"}
+                                    <Checkbox
+                                      data-plasmic-name={"checkbox6"}
                                       data-plasmic-override={
-                                        overrides.creditCard4
+                                        overrides.checkbox6
                                       }
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.creditCard4
+                                        "__wab_instance",
+                                        sty.checkbox6
                                       )}
+                                      isChecked={
+                                        p.generateStateValueProp($state, [
+                                          "checkbox6",
+                                          "isChecked"
+                                        ]) ?? false
+                                      }
+                                      onChange={(...eventArgs) => {
+                                        p.generateStateOnChangeProp($state, [
+                                          "checkbox6",
+                                          "isChecked"
+                                        ])(eventArgs[0]);
+                                      }}
                                     >
                                       {"Add Peace of Mind Insurance"}
-                                    </div>
+                                    </Checkbox>
                                   </p.Stack>
                                   <div
                                     className={classNames(
@@ -1465,15 +1696,65 @@ function PlasmicHomepage__RenderFunc(props) {
                                 sty.frame1456
                               )}
                             >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__mDVyZ
-                                )}
-                              >
-                                {"5. Payment"}
-                              </div>
+                              {(
+                                hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobileOnly"
+                                )
+                                  ? true
+                                  : true
+                              ) ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.columns__dHoqy
+                                  )}
+                                >
+                                  {(
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobileOnly"
+                                    )
+                                      ? true
+                                      : true
+                                  ) ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.column__pka5Y
+                                      )}
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__mDVyZ
+                                        )}
+                                      >
+                                        {"5. Payment"}
+                                      </div>
+                                    </div>
+                                  ) : null}
+                                  {(
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobileOnly"
+                                    )
+                                      ? true
+                                      : true
+                                  ) ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.column__zhcqE
+                                      )}
+                                    />
+                                  ) : null}
+                                </div>
+                              ) : null}
                               <div
                                 className={classNames(
                                   projectcss.all,
@@ -1543,21 +1824,34 @@ function PlasmicHomepage__RenderFunc(props) {
                                         sty.searchForSometingFun17
                                       )}
                                     >
-                                      <div
-                                        data-plasmic-name={
-                                          "searchForSometingFun18"
-                                        }
+                                      <TextInput
+                                        data-plasmic-name={"textInput9"}
                                         data-plasmic-override={
-                                          overrides.searchForSometingFun18
+                                          overrides.textInput9
                                         }
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.searchForSometingFun18
+                                          "__wab_instance",
+                                          sty.textInput9
                                         )}
-                                      >
-                                        {"Card number"}
-                                      </div>
+                                        onChange={(...eventArgs) => {
+                                          p.generateStateOnChangeProp($state, [
+                                            "textInput9",
+                                            "value"
+                                          ])(
+                                            (e => e.target?.value).apply(
+                                              null,
+                                              eventArgs
+                                            )
+                                          );
+                                        }}
+                                        placeholder={"Card number"}
+                                        value={
+                                          p.generateStateValueProp($state, [
+                                            "textInput9",
+                                            "value"
+                                          ]) ?? ""
+                                        }
+                                      />
                                     </div>
                                     {false ? (
                                       <div
@@ -1614,21 +1908,33 @@ function PlasmicHomepage__RenderFunc(props) {
                                         sty.searchForSometingFun19
                                       )}
                                     >
-                                      <div
-                                        data-plasmic-name={
-                                          "searchForSometingFun20"
-                                        }
+                                      <TextInput
+                                        data-plasmic-name={"textInput10"}
                                         data-plasmic-override={
-                                          overrides.searchForSometingFun20
+                                          overrides.textInput10
                                         }
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.searchForSometingFun20
+                                          "__wab_instance",
+                                          sty.textInput10
                                         )}
-                                      >
-                                        {"Name on card"}
-                                      </div>
+                                        onChange={(...eventArgs) => {
+                                          p.generateStateOnChangeProp($state, [
+                                            "textInput10",
+                                            "value"
+                                          ])(
+                                            (e => e.target?.value).apply(
+                                              null,
+                                              eventArgs
+                                            )
+                                          );
+                                        }}
+                                        value={
+                                          p.generateStateValueProp($state, [
+                                            "textInput10",
+                                            "value"
+                                          ]) ?? ""
+                                        }
+                                      />
                                     </div>
                                     {false ? (
                                       <div
@@ -1695,21 +2001,34 @@ function PlasmicHomepage__RenderFunc(props) {
                                           sty.searchForSometingFun21
                                         )}
                                       >
-                                        <div
-                                          data-plasmic-name={
-                                            "searchForSometingFun22"
-                                          }
+                                        <TextInput
+                                          data-plasmic-name={"textInput11"}
                                           data-plasmic-override={
-                                            overrides.searchForSometingFun22
+                                            overrides.textInput11
                                           }
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.searchForSometingFun22
+                                            "__wab_instance",
+                                            sty.textInput11
                                           )}
-                                        >
-                                          {"Expiration date (MM /YY)"}
-                                        </div>
+                                          onChange={(...eventArgs) => {
+                                            p.generateStateOnChangeProp(
+                                              $state,
+                                              ["textInput11", "value"]
+                                            )(
+                                              (e => e.target?.value).apply(
+                                                null,
+                                                eventArgs
+                                              )
+                                            );
+                                          }}
+                                          placeholder={"Expiration date"}
+                                          value={
+                                            p.generateStateValueProp($state, [
+                                              "textInput11",
+                                              "value"
+                                            ]) ?? ""
+                                          }
+                                        />
                                       </div>
                                       {false ? (
                                         <div
@@ -1766,21 +2085,34 @@ function PlasmicHomepage__RenderFunc(props) {
                                           sty.searchForSometingFun23
                                         )}
                                       >
-                                        <div
-                                          data-plasmic-name={
-                                            "searchForSometingFun24"
-                                          }
+                                        <TextInput
+                                          data-plasmic-name={"textInput12"}
                                           data-plasmic-override={
-                                            overrides.searchForSometingFun24
+                                            overrides.textInput12
                                           }
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.searchForSometingFun24
+                                            "__wab_instance",
+                                            sty.textInput12
                                           )}
-                                        >
-                                          {"Secure Code"}
-                                        </div>
+                                          onChange={(...eventArgs) => {
+                                            p.generateStateOnChangeProp(
+                                              $state,
+                                              ["textInput12", "value"]
+                                            )(
+                                              (e => e.target?.value).apply(
+                                                null,
+                                                eventArgs
+                                              )
+                                            );
+                                          }}
+                                          placeholder={"CVV"}
+                                          value={
+                                            p.generateStateValueProp($state, [
+                                              "textInput12",
+                                              "value"
+                                            ]) ?? ""
+                                          }
+                                        />
                                       </div>
                                       {false ? (
                                         <div
@@ -2036,24 +2368,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.radio6
                                   )}
                                 >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__ct4J4)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: onWQrnijwPsu,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
                                   <div
                                     data-plasmic-name={"payPalLogo1"}
                                     data-plasmic-override={
@@ -2091,6 +2405,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                       />
                                     </div>
                                   </div>
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox8"}
+                                    data-plasmic-override={overrides.checkbox8}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox8
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox8",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox8",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }}
+                                  />
                                 </p.Stack>
                               </div>
                               <div
@@ -2216,24 +2551,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                 >
                                   <p.PlasmicImg
                                     alt={""}
-                                    className={classNames(sty.img___0D0T5)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: onWQrnijwPsu,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
-                                  <p.PlasmicImg
-                                    alt={""}
                                     className={classNames(sty.img__seRz6)}
                                     displayHeight={"17px"}
                                     displayMaxHeight={"none"}
@@ -2247,6 +2564,28 @@ function PlasmicHomepage__RenderFunc(props) {
                                       fullWidth: 77,
                                       fullHeight: 17,
                                       aspectRatio: 4.529412
+                                    }}
+                                  />
+
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox9"}
+                                    data-plasmic-override={overrides.checkbox9}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox9
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox9",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox9",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
                                     }}
                                   />
                                 </p.Stack>
@@ -2358,24 +2697,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.radio9
                                   )}
                                 >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__iaSCo)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: onWQrnijwPsu,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
                                   <div
                                     data-plasmic-name={"hummBnplLogo20211"}
                                     data-plasmic-override={
@@ -2445,6 +2766,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                       </div>
                                     </div>
                                   </div>
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox10"}
+                                    data-plasmic-override={overrides.checkbox10}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox10
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox10",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox10",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }}
+                                  />
                                 </p.Stack>
                                 <p.Stack
                                   as={"div"}
@@ -2556,24 +2898,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                 >
                                   <p.PlasmicImg
                                     alt={""}
-                                    className={classNames(sty.img__qVdcv)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: onWQrnijwPsu,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
-                                  <p.PlasmicImg
-                                    alt={""}
                                     className={classNames(sty.img__jDdmU)}
                                     displayHeight={"17px"}
                                     displayMaxHeight={"none"}
@@ -2587,6 +2911,28 @@ function PlasmicHomepage__RenderFunc(props) {
                                       fullWidth: 49,
                                       fullHeight: 17,
                                       aspectRatio: 2.941176
+                                    }}
+                                  />
+
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox11"}
+                                    data-plasmic-override={overrides.checkbox11}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox11
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox11",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox11",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
                                     }}
                                   />
                                 </p.Stack>
@@ -2698,30 +3044,34 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.radio11
                                   )}
                                 >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img___0Ungk)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: onWQrnijwPsu,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
                                   <Frame300Icon
                                     className={classNames(
                                       projectcss.all,
                                       sty.svg__sDfLv
                                     )}
                                     role={"img"}
+                                  />
+
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox12"}
+                                    data-plasmic-override={overrides.checkbox12}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox12
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox12",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox12",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }}
                                   />
                                 </p.Stack>
                                 <p.Stack
@@ -2883,24 +3233,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.radio12
                                   )}
                                 >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img___3WThc)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: onWQrnijwPsu,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
                                   <div
                                     data-plasmic-name={"creditCard5"}
                                     data-plasmic-override={
@@ -2914,6 +3246,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                   >
                                     {"Use a different billing address"}
                                   </div>
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox14"}
+                                    data-plasmic-override={overrides.checkbox14}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox14
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox14",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox14",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }}
+                                  />
                                 </p.Stack>
                               </div>
                               <div
@@ -2934,24 +3287,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.radio13
                                   )}
                                 >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__sUb1D)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: on2B11R3UtDiU,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
                                   <div
                                     data-plasmic-name={"creditCard6"}
                                     data-plasmic-override={
@@ -2965,6 +3300,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                   >
                                     {"Same as shipping address"}
                                   </div>
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox13"}
+                                    data-plasmic-override={overrides.checkbox13}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox13
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox13",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox13",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }}
+                                  />
                                 </p.Stack>
                               </div>
                             </div>
@@ -2999,33 +3355,6 @@ function PlasmicHomepage__RenderFunc(props) {
                               )}
                             >
                               <div
-                                data-plasmic-name={"component78"}
-                                data-plasmic-override={overrides.component78}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.component78
-                                )}
-                              >
-                                <div
-                                  data-plasmic-name={"rectangle1109"}
-                                  data-plasmic-override={
-                                    overrides.rectangle1109
-                                  }
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.rectangle1109
-                                  )}
-                                />
-
-                                <Vector11Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___1Flmn
-                                  )}
-                                  role={"img"}
-                                />
-                              </div>
-                              <div
                                 data-plasmic-name={
                                   "keepMeUpToDateOnNewsAndOffers"
                                 }
@@ -3040,6 +3369,27 @@ function PlasmicHomepage__RenderFunc(props) {
                               >
                                 {"Save my information for a faster checkout"}
                               </div>
+                              <Checkbox
+                                data-plasmic-name={"checkbox15"}
+                                data-plasmic-override={overrides.checkbox15}
+                                children={null}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.checkbox15
+                                )}
+                                isChecked={
+                                  p.generateStateValueProp($state, [
+                                    "checkbox15",
+                                    "isChecked"
+                                  ]) ?? false
+                                }
+                                onChange={(...eventArgs) => {
+                                  p.generateStateOnChangeProp($state, [
+                                    "checkbox15",
+                                    "isChecked"
+                                  ])(eventArgs[0]);
+                                }}
+                              />
                             </p.Stack>
                           </p.Stack>
                         </p.Stack>
@@ -3544,21 +3894,33 @@ function PlasmicHomepage__RenderFunc(props) {
                                       sty.searchForSometingFun27
                                     )}
                                   >
-                                    <div
-                                      data-plasmic-name={
-                                        "searchForSometingFun28"
-                                      }
+                                    <TextInput
+                                      data-plasmic-name={"textInput13"}
                                       data-plasmic-override={
-                                        overrides.searchForSometingFun28
+                                        overrides.textInput13
                                       }
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.searchForSometingFun28
+                                        "__wab_instance",
+                                        sty.textInput13
                                       )}
-                                    >
-                                      {"Input"}
-                                    </div>
+                                      onChange={(...eventArgs) => {
+                                        p.generateStateOnChangeProp($state, [
+                                          "textInput13",
+                                          "value"
+                                        ])(
+                                          (e => e.target?.value).apply(
+                                            null,
+                                            eventArgs
+                                          )
+                                        );
+                                      }}
+                                      value={
+                                        p.generateStateValueProp($state, [
+                                          "textInput13",
+                                          "value"
+                                        ]) ?? ""
+                                      }
+                                    />
                                   </div>
                                   {false ? (
                                     <div
@@ -3646,25 +4008,29 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.frame1540
                                 )}
                               >
-                                <BxbxsCreditCardIcon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___4Fqtf
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <div
-                                  data-plasmic-name={"pay3439002"}
-                                  data-plasmic-override={overrides.pay3439002}
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.pay3439002
-                                  )}
-                                >
-                                  {"Pay $24.94"}
-                                </div>
+                                {true ? (
+                                  <Button
+                                    data-plasmic-name={"button"}
+                                    data-plasmic-override={overrides.button}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button
+                                    )}
+                                    color={"blue"}
+                                    shape={"rounded"}
+                                    size={"minimal"}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___8ARg
+                                      )}
+                                    >
+                                      {"SUBMIT"}
+                                    </div>
+                                  </Button>
+                                ) : null}
                               </p.Stack>
                             </div>
                           </p.Stack>
@@ -3680,8 +4046,45 @@ function PlasmicHomepage__RenderFunc(props) {
                         {"Fill the form below to complete your purchase!"}
                       </div>
                     </p.Stack>
+                    {(
+                      hasVariant(globalVariants, "screen", "mobileOnly")
+                        ? true
+                        : true
+                    ) ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.columns___7LxRj
+                        )}
+                      >
+                        {(
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? true
+                            : true
+                        ) ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.column__oaS5
+                            )}
+                          />
+                        ) : null}
+                        {(
+                          hasVariant(globalVariants, "screen", "mobileOnly")
+                            ? true
+                            : true
+                        ) ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.column__ovkkL
+                            )}
+                          />
+                        ) : null}
+                      </div>
+                    ) : null}
                   </div>
-                </div>
+                </form>
               )}
             </ph.DataCtxReader>
           </GraphqlFetcher>
@@ -3695,6 +4098,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "graphQlFetcher",
+    "form",
     "checkout",
     "autoLayout",
     "header",
@@ -3708,9 +4112,8 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108",
@@ -3722,72 +4125,67 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
     "frame276",
+    "textInput3",
     "forms5",
     "email3",
     "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
     "frame278",
+    "textInput4",
     "forms6",
     "email4",
     "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
     "frame280",
+    "textInput5",
     "forms7",
     "email5",
     "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
     "frame282",
+    "textInput6",
     "forms8",
     "email6",
     "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
     "frame284",
+    "textInput7",
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3",
+    "select3",
     "forms12",
     "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
     "frame289",
+    "textInput8",
     "frame1513",
     "frame1514",
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334",
     "frame1515",
     "frame1516",
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping",
     "frame1519",
@@ -3798,23 +4196,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -3835,6 +4233,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -3843,6 +4242,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -3856,6 +4256,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -3865,6 +4266,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -3874,6 +4276,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -3887,14 +4290,15 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
     "creditCard6",
+    "checkbox13",
     "frame1462",
     "checkbox2",
-    "component78",
-    "rectangle1109",
     "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15",
     "frame1532",
     "frame1463",
     "frame1533",
@@ -3923,7 +4327,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -3931,11 +4335,12 @@ const PlasmicDescendants = {
     "keepMeUpToDateOnNewsAndOffers2",
     "buttons2",
     "frame1540",
-    "pay3439002"
+    "button"
   ],
 
   graphQlFetcher: [
     "graphQlFetcher",
+    "form",
     "checkout",
     "autoLayout",
     "header",
@@ -3949,9 +4354,8 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108",
@@ -3963,72 +4367,67 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
     "frame276",
+    "textInput3",
     "forms5",
     "email3",
     "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
     "frame278",
+    "textInput4",
     "forms6",
     "email4",
     "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
     "frame280",
+    "textInput5",
     "forms7",
     "email5",
     "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
     "frame282",
+    "textInput6",
     "forms8",
     "email6",
     "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
     "frame284",
+    "textInput7",
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3",
+    "select3",
     "forms12",
     "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
     "frame289",
+    "textInput8",
     "frame1513",
     "frame1514",
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334",
     "frame1515",
     "frame1516",
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping",
     "frame1519",
@@ -4039,23 +4438,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -4076,6 +4475,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -4084,6 +4484,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -4097,6 +4498,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -4106,6 +4508,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -4115,6 +4518,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -4128,14 +4532,15 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
     "creditCard6",
+    "checkbox13",
     "frame1462",
     "checkbox2",
-    "component78",
-    "rectangle1109",
     "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15",
     "frame1532",
     "frame1463",
     "frame1533",
@@ -4164,7 +4569,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -4172,7 +4577,248 @@ const PlasmicDescendants = {
     "keepMeUpToDateOnNewsAndOffers2",
     "buttons2",
     "frame1540",
-    "pay3439002"
+    "button"
+  ],
+
+  form: [
+    "form",
+    "checkout",
+    "autoLayout",
+    "header",
+    "frame1506",
+    "logo",
+    "frame1505",
+    "frame1507",
+    "forms",
+    "frame1508",
+    "frame1509",
+    "frame1510",
+    "forms2",
+    "frame272",
+    "frame271",
+    "textInput",
+    "checkbox",
+    "component77",
+    "rectangle1108",
+    "frame1511",
+    "frame2",
+    "forms3",
+    "email",
+    "frame273",
+    "searchForSometingFun3",
+    "searchForSometingFun4",
+    "frame274",
+    "textInput2",
+    "forms4",
+    "email2",
+    "frame275",
+    "frame276",
+    "textInput3",
+    "forms5",
+    "email3",
+    "frame277",
+    "frame278",
+    "textInput4",
+    "forms6",
+    "email4",
+    "frame279",
+    "frame280",
+    "textInput5",
+    "forms7",
+    "email5",
+    "frame281",
+    "frame282",
+    "textInput6",
+    "forms8",
+    "email6",
+    "frame283",
+    "frame284",
+    "textInput7",
+    "frame1512",
+    "forms9",
+    "stateterritory",
+    "frame285",
+    "select",
+    "forms10",
+    "frame286",
+    "select2",
+    "forms11",
+    "stateterritory2",
+    "frame287",
+    "select3",
+    "forms12",
+    "frame288",
+    "frame289",
+    "textInput8",
+    "frame1513",
+    "frame1514",
+    "group1506",
+    "frame331",
+    "radio",
+    "checkbox5",
+    "frame290",
+    "radio2",
+    "checkbox4",
+    "frame334",
+    "frame1515",
+    "frame1516",
+    "group1505",
+    "frame1517",
+    "radio3",
+    "checkbox7",
+    "frame1518",
+    "radio4",
+    "checkbox6",
+    "frame335",
+    "learnMoreAboutShipping",
+    "frame1519",
+    "frame1520",
+    "frame1456",
+    "group1508",
+    "frame1521",
+    "forms13",
+    "frame291",
+    "searchForSometingFun17",
+    "textInput9",
+    "frame292",
+    "forms14",
+    "frame293",
+    "searchForSometingFun19",
+    "textInput10",
+    "frame294",
+    "frame1522",
+    "forms15",
+    "frame295",
+    "searchForSometingFun21",
+    "textInput11",
+    "frame296",
+    "forms16",
+    "frame297",
+    "searchForSometingFun23",
+    "textInput12",
+    "frame298",
+    "frame299",
+    "radio5",
+    "frame1455",
+    "visa",
+    "base",
+    "base2",
+    "discover",
+    "base3",
+    "base4",
+    "maestro",
+    "base5",
+    "base6",
+    "mastercard",
+    "base7",
+    "base8",
+    "frame1523",
+    "radio6",
+    "payPalLogo1",
+    "g10",
+    "checkbox8",
+    "frame1524",
+    "radio7",
+    "afterpayLogo1",
+    "symbolsNavigation",
+    "fullHlogoutWishlist",
+    "topNavLoggedOut",
+    "frame1525",
+    "radio8",
+    "checkbox9",
+    "frame1457",
+    "visa2",
+    "base9",
+    "base10",
+    "mastercard2",
+    "base11",
+    "base12",
+    "frame1526",
+    "radio9",
+    "hummBnplLogo20211",
+    "g36",
+    "g38",
+    "g40",
+    "checkbox10",
+    "frame1458",
+    "visa3",
+    "base13",
+    "base14",
+    "mastercard3",
+    "base15",
+    "base16",
+    "frame1527",
+    "radio10",
+    "checkbox11",
+    "frame1459",
+    "visa4",
+    "base17",
+    "base18",
+    "mastercard4",
+    "base19",
+    "base20",
+    "frame1528",
+    "radio11",
+    "checkbox12",
+    "frame1460",
+    "visa5",
+    "base21",
+    "base22",
+    "mastercard5",
+    "base23",
+    "base24",
+    "frame1529",
+    "frame1461",
+    "group1507",
+    "frame1530",
+    "radio12",
+    "creditCard5",
+    "checkbox14",
+    "frame1531",
+    "radio13",
+    "creditCard6",
+    "checkbox13",
+    "frame1462",
+    "checkbox2",
+    "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15",
+    "frame1532",
+    "frame1463",
+    "frame1533",
+    "frame1534",
+    "group1510",
+    "group1509",
+    "frame1475",
+    "rectangle20",
+    "iconParkadProduct",
+    "group1462",
+    "_1",
+    "frame1535",
+    "forms17",
+    "frame300",
+    "searchForSometingFun25",
+    "searchForSometingFun26",
+    "frame301",
+    "buttons",
+    "pay343900",
+    "frame1536",
+    "frame1537",
+    "group1463",
+    "frame1538",
+    "frame1539",
+    "forms18",
+    "email7",
+    "frame302",
+    "searchForSometingFun27",
+    "textInput13",
+    "frame303",
+    "checkbox3",
+    "component79",
+    "rectangle1110",
+    "keepMeUpToDateOnNewsAndOffers2",
+    "buttons2",
+    "frame1540",
+    "button"
   ],
 
   checkout: [
@@ -4189,9 +4835,8 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108",
@@ -4203,72 +4848,67 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
     "frame276",
+    "textInput3",
     "forms5",
     "email3",
     "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
     "frame278",
+    "textInput4",
     "forms6",
     "email4",
     "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
     "frame280",
+    "textInput5",
     "forms7",
     "email5",
     "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
     "frame282",
+    "textInput6",
     "forms8",
     "email6",
     "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
     "frame284",
+    "textInput7",
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3",
+    "select3",
     "forms12",
     "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
     "frame289",
+    "textInput8",
     "frame1513",
     "frame1514",
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334",
     "frame1515",
     "frame1516",
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping",
     "frame1519",
@@ -4279,23 +4919,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -4316,6 +4956,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -4324,6 +4965,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -4337,6 +4979,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -4346,6 +4989,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -4355,6 +4999,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -4368,14 +5013,15 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
     "creditCard6",
+    "checkbox13",
     "frame1462",
     "checkbox2",
-    "component78",
-    "rectangle1109",
     "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15",
     "frame1532",
     "frame1463",
     "frame1533",
@@ -4404,7 +5050,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -4412,7 +5058,7 @@ const PlasmicDescendants = {
     "keepMeUpToDateOnNewsAndOffers2",
     "buttons2",
     "frame1540",
-    "pay3439002"
+    "button"
   ],
 
   autoLayout: [
@@ -4428,9 +5074,8 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108",
@@ -4442,72 +5087,67 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
     "frame276",
+    "textInput3",
     "forms5",
     "email3",
     "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
     "frame278",
+    "textInput4",
     "forms6",
     "email4",
     "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
     "frame280",
+    "textInput5",
     "forms7",
     "email5",
     "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
     "frame282",
+    "textInput6",
     "forms8",
     "email6",
     "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
     "frame284",
+    "textInput7",
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3",
+    "select3",
     "forms12",
     "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
     "frame289",
+    "textInput8",
     "frame1513",
     "frame1514",
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334",
     "frame1515",
     "frame1516",
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping",
     "frame1519",
@@ -4518,23 +5158,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -4555,6 +5195,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -4563,6 +5204,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -4576,6 +5218,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -4585,6 +5228,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -4594,6 +5238,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -4607,14 +5252,15 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
     "creditCard6",
+    "checkbox13",
     "frame1462",
     "checkbox2",
-    "component78",
-    "rectangle1109",
     "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15",
     "frame1532",
     "frame1463",
     "frame1533",
@@ -4643,7 +5289,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -4651,7 +5297,7 @@ const PlasmicDescendants = {
     "keepMeUpToDateOnNewsAndOffers2",
     "buttons2",
     "frame1540",
-    "pay3439002"
+    "button"
   ],
 
   header: ["header", "frame1506", "logo", "frame1505", "frame1507"],
@@ -4666,9 +5312,8 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108",
@@ -4680,72 +5325,67 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
     "frame276",
+    "textInput3",
     "forms5",
     "email3",
     "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
     "frame278",
+    "textInput4",
     "forms6",
     "email4",
     "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
     "frame280",
+    "textInput5",
     "forms7",
     "email5",
     "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
     "frame282",
+    "textInput6",
     "forms8",
     "email6",
     "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
     "frame284",
+    "textInput7",
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3",
+    "select3",
     "forms12",
     "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
     "frame289",
+    "textInput8",
     "frame1513",
     "frame1514",
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334",
     "frame1515",
     "frame1516",
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping",
     "frame1519",
@@ -4756,23 +5396,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -4793,6 +5433,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -4801,6 +5442,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -4814,6 +5456,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -4823,6 +5466,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -4832,6 +5476,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -4845,14 +5490,15 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
     "creditCard6",
+    "checkbox13",
     "frame1462",
     "checkbox2",
-    "component78",
-    "rectangle1109",
     "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15",
     "frame1532",
     "frame1463",
     "frame1533",
@@ -4881,7 +5527,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -4889,7 +5535,7 @@ const PlasmicDescendants = {
     "keepMeUpToDateOnNewsAndOffers2",
     "buttons2",
     "frame1540",
-    "pay3439002"
+    "button"
   ],
 
   frame1508: [
@@ -4898,9 +5544,8 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108",
@@ -4912,72 +5557,67 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
     "frame276",
+    "textInput3",
     "forms5",
     "email3",
     "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
     "frame278",
+    "textInput4",
     "forms6",
     "email4",
     "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
     "frame280",
+    "textInput5",
     "forms7",
     "email5",
     "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
     "frame282",
+    "textInput6",
     "forms8",
     "email6",
     "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
     "frame284",
+    "textInput7",
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3",
+    "select3",
     "forms12",
     "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
     "frame289",
+    "textInput8",
     "frame1513",
     "frame1514",
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334",
     "frame1515",
     "frame1516",
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping"
   ],
@@ -4987,9 +5627,8 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108"
@@ -4999,32 +5638,17 @@ const PlasmicDescendants = {
     "frame1510",
     "forms2",
     "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
     "frame271",
+    "textInput",
     "checkbox",
     "component77",
     "rectangle1108"
   ],
 
-  forms2: [
-    "forms2",
-    "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
-    "frame271"
-  ],
-
-  frame272: [
-    "frame272",
-    "searchForSometingFun",
-    "searchForSometingFun2",
-    "frame271"
-  ],
-
-  searchForSometingFun: ["searchForSometingFun", "searchForSometingFun2"],
-  searchForSometingFun2: ["searchForSometingFun2"],
+  forms2: ["forms2", "frame272", "frame271", "textInput"],
+  frame272: ["frame272", "frame271", "textInput"],
   frame271: ["frame271"],
+  textInput: ["textInput"],
   checkbox: ["checkbox", "component77", "rectangle1108"],
   component77: ["component77", "rectangle1108"],
   rectangle1108: ["rectangle1108"],
@@ -5037,53 +5661,48 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
     "frame276",
+    "textInput3",
     "forms5",
     "email3",
     "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
     "frame278",
+    "textInput4",
     "forms6",
     "email4",
     "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
     "frame280",
+    "textInput5",
     "forms7",
     "email5",
     "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
     "frame282",
+    "textInput6",
     "forms8",
     "email6",
     "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
     "frame284",
+    "textInput7",
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3",
+    "select3",
     "forms12",
     "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
-    "frame289"
+    "frame289",
+    "textInput8"
   ],
 
   frame2: [
@@ -5094,12 +5713,12 @@ const PlasmicDescendants = {
     "searchForSometingFun3",
     "searchForSometingFun4",
     "frame274",
+    "textInput2",
     "forms4",
     "email2",
     "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
-    "frame276"
+    "frame276",
+    "textInput3"
   ],
 
   forms3: [
@@ -5108,7 +5727,8 @@ const PlasmicDescendants = {
     "frame273",
     "searchForSometingFun3",
     "searchForSometingFun4",
-    "frame274"
+    "frame274",
+    "textInput2"
   ],
 
   email: ["email"],
@@ -5116,166 +5736,79 @@ const PlasmicDescendants = {
     "frame273",
     "searchForSometingFun3",
     "searchForSometingFun4",
-    "frame274"
+    "frame274",
+    "textInput2"
   ],
 
   searchForSometingFun3: ["searchForSometingFun3", "searchForSometingFun4"],
   searchForSometingFun4: ["searchForSometingFun4"],
   frame274: ["frame274"],
-  forms4: [
-    "forms4",
-    "email2",
-    "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
-    "frame276"
-  ],
-
+  textInput2: ["textInput2"],
+  forms4: ["forms4", "email2", "frame275", "frame276", "textInput3"],
   email2: ["email2"],
-  frame275: [
-    "frame275",
-    "searchForSometingFun5",
-    "searchForSometingFun6",
-    "frame276"
-  ],
-
-  searchForSometingFun5: ["searchForSometingFun5", "searchForSometingFun6"],
-  searchForSometingFun6: ["searchForSometingFun6"],
+  frame275: ["frame275", "frame276", "textInput3"],
   frame276: ["frame276"],
-  forms5: [
-    "forms5",
-    "email3",
-    "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
-    "frame278"
-  ],
-
+  textInput3: ["textInput3"],
+  forms5: ["forms5", "email3", "frame277", "frame278", "textInput4"],
   email3: ["email3"],
-  frame277: [
-    "frame277",
-    "searchForSometingFun7",
-    "searchForSometingFun8",
-    "frame278"
-  ],
-
-  searchForSometingFun7: ["searchForSometingFun7", "searchForSometingFun8"],
-  searchForSometingFun8: ["searchForSometingFun8"],
+  frame277: ["frame277", "frame278", "textInput4"],
   frame278: ["frame278"],
-  forms6: [
-    "forms6",
-    "email4",
-    "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
-    "frame280"
-  ],
-
+  textInput4: ["textInput4"],
+  forms6: ["forms6", "email4", "frame279", "frame280", "textInput5"],
   email4: ["email4"],
-  frame279: [
-    "frame279",
-    "searchForSometingFun9",
-    "searchForSometingFun10",
-    "frame280"
-  ],
-
-  searchForSometingFun9: ["searchForSometingFun9", "searchForSometingFun10"],
-  searchForSometingFun10: ["searchForSometingFun10"],
+  frame279: ["frame279", "frame280", "textInput5"],
   frame280: ["frame280"],
-  forms7: [
-    "forms7",
-    "email5",
-    "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
-    "frame282"
-  ],
-
+  textInput5: ["textInput5"],
+  forms7: ["forms7", "email5", "frame281", "frame282", "textInput6"],
   email5: ["email5"],
-  frame281: [
-    "frame281",
-    "searchForSometingFun11",
-    "searchForSometingFun12",
-    "frame282"
-  ],
-
-  searchForSometingFun11: ["searchForSometingFun11", "searchForSometingFun12"],
-  searchForSometingFun12: ["searchForSometingFun12"],
+  frame281: ["frame281", "frame282", "textInput6"],
   frame282: ["frame282"],
-  forms8: [
-    "forms8",
-    "email6",
-    "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
-    "frame284"
-  ],
-
+  textInput6: ["textInput6"],
+  forms8: ["forms8", "email6", "frame283", "frame284", "textInput7"],
   email6: ["email6"],
-  frame283: [
-    "frame283",
-    "searchForSometingFun13",
-    "searchForSometingFun14",
-    "frame284"
-  ],
-
-  searchForSometingFun13: ["searchForSometingFun13", "searchForSometingFun14"],
-  searchForSometingFun14: ["searchForSometingFun14"],
+  frame283: ["frame283", "frame284", "textInput7"],
   frame284: ["frame284"],
+  textInput7: ["textInput7"],
   frame1512: [
     "frame1512",
     "forms9",
     "stateterritory",
     "frame285",
-    "input",
+    "select",
     "forms10",
     "frame286",
-    "input2",
+    "select2",
     "forms11",
     "stateterritory2",
     "frame287",
-    "input3"
+    "select3"
   ],
 
-  forms9: ["forms9", "stateterritory", "frame285", "input"],
+  forms9: ["forms9", "stateterritory", "frame285", "select"],
   stateterritory: ["stateterritory"],
-  frame285: ["frame285", "input"],
-  input: ["input"],
-  forms10: ["forms10", "frame286", "input2"],
-  frame286: ["frame286", "input2"],
-  input2: ["input2"],
-  forms11: ["forms11", "stateterritory2", "frame287", "input3"],
+  frame285: ["frame285", "select"],
+  select: ["select"],
+  forms10: ["forms10", "frame286", "select2"],
+  frame286: ["frame286", "select2"],
+  select2: ["select2"],
+  forms11: ["forms11", "stateterritory2", "frame287", "select3"],
   stateterritory2: ["stateterritory2"],
-  frame287: ["frame287", "input3"],
-  input3: ["input3"],
-  forms12: [
-    "forms12",
-    "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
-    "frame289"
-  ],
-
-  frame288: [
-    "frame288",
-    "searchForSometingFun15",
-    "searchForSometingFun16",
-    "frame289"
-  ],
-
-  searchForSometingFun15: ["searchForSometingFun15", "searchForSometingFun16"],
-  searchForSometingFun16: ["searchForSometingFun16"],
+  frame287: ["frame287", "select3"],
+  select3: ["select3"],
+  forms12: ["forms12", "frame288", "frame289", "textInput8"],
+  frame288: ["frame288", "frame289", "textInput8"],
   frame289: ["frame289"],
+  textInput8: ["textInput8"],
   frame1513: [
     "frame1513",
     "frame1514",
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334"
   ],
 
@@ -5284,10 +5817,10 @@ const PlasmicDescendants = {
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2",
+    "checkbox4",
     "frame334"
   ],
 
@@ -5295,18 +5828,18 @@ const PlasmicDescendants = {
     "group1506",
     "frame331",
     "radio",
-    "creditCard",
+    "checkbox5",
     "frame290",
     "radio2",
-    "creditCard2"
+    "checkbox4"
   ],
 
-  frame331: ["frame331", "radio", "creditCard"],
-  radio: ["radio", "creditCard"],
-  creditCard: ["creditCard"],
-  frame290: ["frame290", "radio2", "creditCard2"],
-  radio2: ["radio2", "creditCard2"],
-  creditCard2: ["creditCard2"],
+  frame331: ["frame331", "radio", "checkbox5"],
+  radio: ["radio", "checkbox5"],
+  checkbox5: ["checkbox5"],
+  frame290: ["frame290", "radio2", "checkbox4"],
+  radio2: ["radio2", "checkbox4"],
+  checkbox4: ["checkbox4"],
   frame334: ["frame334"],
   frame1515: [
     "frame1515",
@@ -5314,10 +5847,10 @@ const PlasmicDescendants = {
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping"
   ],
@@ -5327,10 +5860,10 @@ const PlasmicDescendants = {
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4",
+    "checkbox6",
     "frame335",
     "learnMoreAboutShipping"
   ],
@@ -5339,18 +5872,18 @@ const PlasmicDescendants = {
     "group1505",
     "frame1517",
     "radio3",
-    "creditCard3",
+    "checkbox7",
     "frame1518",
     "radio4",
-    "creditCard4"
+    "checkbox6"
   ],
 
-  frame1517: ["frame1517", "radio3", "creditCard3"],
-  radio3: ["radio3", "creditCard3"],
-  creditCard3: ["creditCard3"],
-  frame1518: ["frame1518", "radio4", "creditCard4"],
-  radio4: ["radio4", "creditCard4"],
-  creditCard4: ["creditCard4"],
+  frame1517: ["frame1517", "radio3", "checkbox7"],
+  radio3: ["radio3", "checkbox7"],
+  checkbox7: ["checkbox7"],
+  frame1518: ["frame1518", "radio4", "checkbox6"],
+  radio4: ["radio4", "checkbox6"],
+  checkbox6: ["checkbox6"],
   frame335: ["frame335", "learnMoreAboutShipping"],
   learnMoreAboutShipping: ["learnMoreAboutShipping"],
   frame1519: [
@@ -5362,23 +5895,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -5399,6 +5932,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -5407,6 +5941,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -5420,6 +5955,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -5429,6 +5965,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -5438,6 +5975,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -5451,14 +5989,15 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
     "creditCard6",
+    "checkbox13",
     "frame1462",
     "checkbox2",
-    "component78",
-    "rectangle1109",
-    "keepMeUpToDateOnNewsAndOffers"
+    "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15"
   ],
 
   frame1520: [
@@ -5469,23 +6008,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -5506,6 +6045,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -5514,6 +6054,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -5527,6 +6068,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -5536,6 +6078,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -5545,6 +6088,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -5561,23 +6105,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298",
     "frame299",
     "radio5",
@@ -5598,6 +6142,7 @@ const PlasmicDescendants = {
     "radio6",
     "payPalLogo1",
     "g10",
+    "checkbox8",
     "frame1524",
     "radio7",
     "afterpayLogo1",
@@ -5606,6 +6151,7 @@ const PlasmicDescendants = {
     "topNavLoggedOut",
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -5619,6 +6165,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -5628,6 +6175,7 @@ const PlasmicDescendants = {
     "base16",
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -5637,6 +6185,7 @@ const PlasmicDescendants = {
     "base20",
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -5651,23 +6200,23 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292",
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294",
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298"
   ],
 
@@ -5675,49 +6224,37 @@ const PlasmicDescendants = {
     "forms13",
     "frame291",
     "searchForSometingFun17",
-    "searchForSometingFun18",
+    "textInput9",
     "frame292"
   ],
 
-  frame291: [
-    "frame291",
-    "searchForSometingFun17",
-    "searchForSometingFun18",
-    "frame292"
-  ],
-
-  searchForSometingFun17: ["searchForSometingFun17", "searchForSometingFun18"],
-  searchForSometingFun18: ["searchForSometingFun18"],
+  frame291: ["frame291", "searchForSometingFun17", "textInput9", "frame292"],
+  searchForSometingFun17: ["searchForSometingFun17", "textInput9"],
+  textInput9: ["textInput9"],
   frame292: ["frame292"],
   forms14: [
     "forms14",
     "frame293",
     "searchForSometingFun19",
-    "searchForSometingFun20",
+    "textInput10",
     "frame294"
   ],
 
-  frame293: [
-    "frame293",
-    "searchForSometingFun19",
-    "searchForSometingFun20",
-    "frame294"
-  ],
-
-  searchForSometingFun19: ["searchForSometingFun19", "searchForSometingFun20"],
-  searchForSometingFun20: ["searchForSometingFun20"],
+  frame293: ["frame293", "searchForSometingFun19", "textInput10", "frame294"],
+  searchForSometingFun19: ["searchForSometingFun19", "textInput10"],
+  textInput10: ["textInput10"],
   frame294: ["frame294"],
   frame1522: [
     "frame1522",
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296",
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298"
   ],
 
@@ -5725,37 +6262,25 @@ const PlasmicDescendants = {
     "forms15",
     "frame295",
     "searchForSometingFun21",
-    "searchForSometingFun22",
+    "textInput11",
     "frame296"
   ],
 
-  frame295: [
-    "frame295",
-    "searchForSometingFun21",
-    "searchForSometingFun22",
-    "frame296"
-  ],
-
-  searchForSometingFun21: ["searchForSometingFun21", "searchForSometingFun22"],
-  searchForSometingFun22: ["searchForSometingFun22"],
+  frame295: ["frame295", "searchForSometingFun21", "textInput11", "frame296"],
+  searchForSometingFun21: ["searchForSometingFun21", "textInput11"],
+  textInput11: ["textInput11"],
   frame296: ["frame296"],
   forms16: [
     "forms16",
     "frame297",
     "searchForSometingFun23",
-    "searchForSometingFun24",
+    "textInput12",
     "frame298"
   ],
 
-  frame297: [
-    "frame297",
-    "searchForSometingFun23",
-    "searchForSometingFun24",
-    "frame298"
-  ],
-
-  searchForSometingFun23: ["searchForSometingFun23", "searchForSometingFun24"],
-  searchForSometingFun24: ["searchForSometingFun24"],
+  frame297: ["frame297", "searchForSometingFun23", "textInput12", "frame298"],
+  searchForSometingFun23: ["searchForSometingFun23", "textInput12"],
+  textInput12: ["textInput12"],
   frame298: ["frame298"],
   frame299: [
     "frame299",
@@ -5804,10 +6329,11 @@ const PlasmicDescendants = {
   mastercard: ["mastercard", "base7", "base8"],
   base7: ["base7", "base8"],
   base8: ["base8"],
-  frame1523: ["frame1523", "radio6", "payPalLogo1", "g10"],
-  radio6: ["radio6", "payPalLogo1", "g10"],
+  frame1523: ["frame1523", "radio6", "payPalLogo1", "g10", "checkbox8"],
+  radio6: ["radio6", "payPalLogo1", "g10", "checkbox8"],
   payPalLogo1: ["payPalLogo1", "g10"],
   g10: ["g10"],
+  checkbox8: ["checkbox8"],
   frame1524: [
     "frame1524",
     "radio7",
@@ -5843,6 +6369,7 @@ const PlasmicDescendants = {
   frame1525: [
     "frame1525",
     "radio8",
+    "checkbox9",
     "frame1457",
     "visa2",
     "base9",
@@ -5852,7 +6379,8 @@ const PlasmicDescendants = {
     "base12"
   ],
 
-  radio8: ["radio8"],
+  radio8: ["radio8", "checkbox9"],
+  checkbox9: ["checkbox9"],
   frame1457: [
     "frame1457",
     "visa2",
@@ -5876,6 +6404,7 @@ const PlasmicDescendants = {
     "g36",
     "g38",
     "g40",
+    "checkbox10",
     "frame1458",
     "visa3",
     "base13",
@@ -5885,11 +6414,12 @@ const PlasmicDescendants = {
     "base16"
   ],
 
-  radio9: ["radio9", "hummBnplLogo20211", "g36", "g38", "g40"],
+  radio9: ["radio9", "hummBnplLogo20211", "g36", "g38", "g40", "checkbox10"],
   hummBnplLogo20211: ["hummBnplLogo20211", "g36", "g38", "g40"],
   g36: ["g36", "g38", "g40"],
   g38: ["g38", "g40"],
   g40: ["g40"],
+  checkbox10: ["checkbox10"],
   frame1458: [
     "frame1458",
     "visa3",
@@ -5909,6 +6439,7 @@ const PlasmicDescendants = {
   frame1527: [
     "frame1527",
     "radio10",
+    "checkbox11",
     "frame1459",
     "visa4",
     "base17",
@@ -5918,7 +6449,8 @@ const PlasmicDescendants = {
     "base20"
   ],
 
-  radio10: ["radio10"],
+  radio10: ["radio10", "checkbox11"],
+  checkbox11: ["checkbox11"],
   frame1459: [
     "frame1459",
     "visa4",
@@ -5938,6 +6470,7 @@ const PlasmicDescendants = {
   frame1528: [
     "frame1528",
     "radio11",
+    "checkbox12",
     "frame1460",
     "visa5",
     "base21",
@@ -5947,7 +6480,8 @@ const PlasmicDescendants = {
     "base24"
   ],
 
-  radio11: ["radio11"],
+  radio11: ["radio11", "checkbox12"],
+  checkbox12: ["checkbox12"],
   frame1460: [
     "frame1460",
     "visa5",
@@ -5971,9 +6505,11 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
-    "creditCard6"
+    "creditCard6",
+    "checkbox13"
   ],
 
   frame1461: ["frame1461"],
@@ -5982,35 +6518,31 @@ const PlasmicDescendants = {
     "frame1530",
     "radio12",
     "creditCard5",
+    "checkbox14",
     "frame1531",
     "radio13",
-    "creditCard6"
+    "creditCard6",
+    "checkbox13"
   ],
 
-  frame1530: ["frame1530", "radio12", "creditCard5"],
-  radio12: ["radio12", "creditCard5"],
+  frame1530: ["frame1530", "radio12", "creditCard5", "checkbox14"],
+  radio12: ["radio12", "creditCard5", "checkbox14"],
   creditCard5: ["creditCard5"],
-  frame1531: ["frame1531", "radio13", "creditCard6"],
-  radio13: ["radio13", "creditCard6"],
+  checkbox14: ["checkbox14"],
+  frame1531: ["frame1531", "radio13", "creditCard6", "checkbox13"],
+  radio13: ["radio13", "creditCard6", "checkbox13"],
   creditCard6: ["creditCard6"],
+  checkbox13: ["checkbox13"],
   frame1462: [
     "frame1462",
     "checkbox2",
-    "component78",
-    "rectangle1109",
-    "keepMeUpToDateOnNewsAndOffers"
+    "keepMeUpToDateOnNewsAndOffers",
+    "checkbox15"
   ],
 
-  checkbox2: [
-    "checkbox2",
-    "component78",
-    "rectangle1109",
-    "keepMeUpToDateOnNewsAndOffers"
-  ],
-
-  component78: ["component78", "rectangle1109"],
-  rectangle1109: ["rectangle1109"],
+  checkbox2: ["checkbox2", "keepMeUpToDateOnNewsAndOffers", "checkbox15"],
   keepMeUpToDateOnNewsAndOffers: ["keepMeUpToDateOnNewsAndOffers"],
+  checkbox15: ["checkbox15"],
   frame1532: [
     "frame1532",
     "frame1463",
@@ -6040,7 +6572,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -6048,7 +6580,7 @@ const PlasmicDescendants = {
     "keepMeUpToDateOnNewsAndOffers2",
     "buttons2",
     "frame1540",
-    "pay3439002"
+    "button"
   ],
 
   frame1463: ["frame1463", "frame1533"],
@@ -6079,7 +6611,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -6087,7 +6619,7 @@ const PlasmicDescendants = {
     "keepMeUpToDateOnNewsAndOffers2",
     "buttons2",
     "frame1540",
-    "pay3439002"
+    "button"
   ],
 
   group1510: [
@@ -6155,7 +6687,7 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303",
     "checkbox3",
     "component79",
@@ -6168,20 +6700,14 @@ const PlasmicDescendants = {
     "email7",
     "frame302",
     "searchForSometingFun27",
-    "searchForSometingFun28",
+    "textInput13",
     "frame303"
   ],
 
   email7: ["email7"],
-  frame302: [
-    "frame302",
-    "searchForSometingFun27",
-    "searchForSometingFun28",
-    "frame303"
-  ],
-
-  searchForSometingFun27: ["searchForSometingFun27", "searchForSometingFun28"],
-  searchForSometingFun28: ["searchForSometingFun28"],
+  frame302: ["frame302", "searchForSometingFun27", "textInput13", "frame303"],
+  searchForSometingFun27: ["searchForSometingFun27", "textInput13"],
+  textInput13: ["textInput13"],
   frame303: ["frame303"],
   checkbox3: [
     "checkbox3",
@@ -6193,9 +6719,9 @@ const PlasmicDescendants = {
   component79: ["component79", "rectangle1110"],
   rectangle1110: ["rectangle1110"],
   keepMeUpToDateOnNewsAndOffers2: ["keepMeUpToDateOnNewsAndOffers2"],
-  buttons2: ["buttons2", "frame1540", "pay3439002"],
-  frame1540: ["frame1540", "pay3439002"],
-  pay3439002: ["pay3439002"]
+  buttons2: ["buttons2", "frame1540", "button"],
+  frame1540: ["frame1540", "button"],
+  button: ["button"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -6231,6 +6757,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     graphQlFetcher: makeNodeComponent("graphQlFetcher"),
+    form: makeNodeComponent("form"),
     checkout: makeNodeComponent("checkout"),
     autoLayout: makeNodeComponent("autoLayout"),
     header: makeNodeComponent("header"),
@@ -6244,9 +6771,8 @@ export const PlasmicHomepage = Object.assign(
     frame1510: makeNodeComponent("frame1510"),
     forms2: makeNodeComponent("forms2"),
     frame272: makeNodeComponent("frame272"),
-    searchForSometingFun: makeNodeComponent("searchForSometingFun"),
-    searchForSometingFun2: makeNodeComponent("searchForSometingFun2"),
     frame271: makeNodeComponent("frame271"),
+    textInput: makeNodeComponent("textInput"),
     checkbox: makeNodeComponent("checkbox"),
     component77: makeNodeComponent("component77"),
     rectangle1108: makeNodeComponent("rectangle1108"),
@@ -6258,72 +6784,67 @@ export const PlasmicHomepage = Object.assign(
     searchForSometingFun3: makeNodeComponent("searchForSometingFun3"),
     searchForSometingFun4: makeNodeComponent("searchForSometingFun4"),
     frame274: makeNodeComponent("frame274"),
+    textInput2: makeNodeComponent("textInput2"),
     forms4: makeNodeComponent("forms4"),
     email2: makeNodeComponent("email2"),
     frame275: makeNodeComponent("frame275"),
-    searchForSometingFun5: makeNodeComponent("searchForSometingFun5"),
-    searchForSometingFun6: makeNodeComponent("searchForSometingFun6"),
     frame276: makeNodeComponent("frame276"),
+    textInput3: makeNodeComponent("textInput3"),
     forms5: makeNodeComponent("forms5"),
     email3: makeNodeComponent("email3"),
     frame277: makeNodeComponent("frame277"),
-    searchForSometingFun7: makeNodeComponent("searchForSometingFun7"),
-    searchForSometingFun8: makeNodeComponent("searchForSometingFun8"),
     frame278: makeNodeComponent("frame278"),
+    textInput4: makeNodeComponent("textInput4"),
     forms6: makeNodeComponent("forms6"),
     email4: makeNodeComponent("email4"),
     frame279: makeNodeComponent("frame279"),
-    searchForSometingFun9: makeNodeComponent("searchForSometingFun9"),
-    searchForSometingFun10: makeNodeComponent("searchForSometingFun10"),
     frame280: makeNodeComponent("frame280"),
+    textInput5: makeNodeComponent("textInput5"),
     forms7: makeNodeComponent("forms7"),
     email5: makeNodeComponent("email5"),
     frame281: makeNodeComponent("frame281"),
-    searchForSometingFun11: makeNodeComponent("searchForSometingFun11"),
-    searchForSometingFun12: makeNodeComponent("searchForSometingFun12"),
     frame282: makeNodeComponent("frame282"),
+    textInput6: makeNodeComponent("textInput6"),
     forms8: makeNodeComponent("forms8"),
     email6: makeNodeComponent("email6"),
     frame283: makeNodeComponent("frame283"),
-    searchForSometingFun13: makeNodeComponent("searchForSometingFun13"),
-    searchForSometingFun14: makeNodeComponent("searchForSometingFun14"),
     frame284: makeNodeComponent("frame284"),
+    textInput7: makeNodeComponent("textInput7"),
     frame1512: makeNodeComponent("frame1512"),
     forms9: makeNodeComponent("forms9"),
     stateterritory: makeNodeComponent("stateterritory"),
     frame285: makeNodeComponent("frame285"),
-    input: makeNodeComponent("input"),
+    select: makeNodeComponent("select"),
     forms10: makeNodeComponent("forms10"),
     frame286: makeNodeComponent("frame286"),
-    input2: makeNodeComponent("input2"),
+    select2: makeNodeComponent("select2"),
     forms11: makeNodeComponent("forms11"),
     stateterritory2: makeNodeComponent("stateterritory2"),
     frame287: makeNodeComponent("frame287"),
-    input3: makeNodeComponent("input3"),
+    select3: makeNodeComponent("select3"),
     forms12: makeNodeComponent("forms12"),
     frame288: makeNodeComponent("frame288"),
-    searchForSometingFun15: makeNodeComponent("searchForSometingFun15"),
-    searchForSometingFun16: makeNodeComponent("searchForSometingFun16"),
     frame289: makeNodeComponent("frame289"),
+    textInput8: makeNodeComponent("textInput8"),
     frame1513: makeNodeComponent("frame1513"),
     frame1514: makeNodeComponent("frame1514"),
     group1506: makeNodeComponent("group1506"),
     frame331: makeNodeComponent("frame331"),
     radio: makeNodeComponent("radio"),
-    creditCard: makeNodeComponent("creditCard"),
+    checkbox5: makeNodeComponent("checkbox5"),
     frame290: makeNodeComponent("frame290"),
     radio2: makeNodeComponent("radio2"),
-    creditCard2: makeNodeComponent("creditCard2"),
+    checkbox4: makeNodeComponent("checkbox4"),
     frame334: makeNodeComponent("frame334"),
     frame1515: makeNodeComponent("frame1515"),
     frame1516: makeNodeComponent("frame1516"),
     group1505: makeNodeComponent("group1505"),
     frame1517: makeNodeComponent("frame1517"),
     radio3: makeNodeComponent("radio3"),
-    creditCard3: makeNodeComponent("creditCard3"),
+    checkbox7: makeNodeComponent("checkbox7"),
     frame1518: makeNodeComponent("frame1518"),
     radio4: makeNodeComponent("radio4"),
-    creditCard4: makeNodeComponent("creditCard4"),
+    checkbox6: makeNodeComponent("checkbox6"),
     frame335: makeNodeComponent("frame335"),
     learnMoreAboutShipping: makeNodeComponent("learnMoreAboutShipping"),
     frame1519: makeNodeComponent("frame1519"),
@@ -6334,23 +6855,23 @@ export const PlasmicHomepage = Object.assign(
     forms13: makeNodeComponent("forms13"),
     frame291: makeNodeComponent("frame291"),
     searchForSometingFun17: makeNodeComponent("searchForSometingFun17"),
-    searchForSometingFun18: makeNodeComponent("searchForSometingFun18"),
+    textInput9: makeNodeComponent("textInput9"),
     frame292: makeNodeComponent("frame292"),
     forms14: makeNodeComponent("forms14"),
     frame293: makeNodeComponent("frame293"),
     searchForSometingFun19: makeNodeComponent("searchForSometingFun19"),
-    searchForSometingFun20: makeNodeComponent("searchForSometingFun20"),
+    textInput10: makeNodeComponent("textInput10"),
     frame294: makeNodeComponent("frame294"),
     frame1522: makeNodeComponent("frame1522"),
     forms15: makeNodeComponent("forms15"),
     frame295: makeNodeComponent("frame295"),
     searchForSometingFun21: makeNodeComponent("searchForSometingFun21"),
-    searchForSometingFun22: makeNodeComponent("searchForSometingFun22"),
+    textInput11: makeNodeComponent("textInput11"),
     frame296: makeNodeComponent("frame296"),
     forms16: makeNodeComponent("forms16"),
     frame297: makeNodeComponent("frame297"),
     searchForSometingFun23: makeNodeComponent("searchForSometingFun23"),
-    searchForSometingFun24: makeNodeComponent("searchForSometingFun24"),
+    textInput12: makeNodeComponent("textInput12"),
     frame298: makeNodeComponent("frame298"),
     frame299: makeNodeComponent("frame299"),
     radio5: makeNodeComponent("radio5"),
@@ -6371,6 +6892,7 @@ export const PlasmicHomepage = Object.assign(
     radio6: makeNodeComponent("radio6"),
     payPalLogo1: makeNodeComponent("payPalLogo1"),
     g10: makeNodeComponent("g10"),
+    checkbox8: makeNodeComponent("checkbox8"),
     frame1524: makeNodeComponent("frame1524"),
     radio7: makeNodeComponent("radio7"),
     afterpayLogo1: makeNodeComponent("afterpayLogo1"),
@@ -6379,6 +6901,7 @@ export const PlasmicHomepage = Object.assign(
     topNavLoggedOut: makeNodeComponent("topNavLoggedOut"),
     frame1525: makeNodeComponent("frame1525"),
     radio8: makeNodeComponent("radio8"),
+    checkbox9: makeNodeComponent("checkbox9"),
     frame1457: makeNodeComponent("frame1457"),
     visa2: makeNodeComponent("visa2"),
     base9: makeNodeComponent("base9"),
@@ -6392,6 +6915,7 @@ export const PlasmicHomepage = Object.assign(
     g36: makeNodeComponent("g36"),
     g38: makeNodeComponent("g38"),
     g40: makeNodeComponent("g40"),
+    checkbox10: makeNodeComponent("checkbox10"),
     frame1458: makeNodeComponent("frame1458"),
     visa3: makeNodeComponent("visa3"),
     base13: makeNodeComponent("base13"),
@@ -6401,6 +6925,7 @@ export const PlasmicHomepage = Object.assign(
     base16: makeNodeComponent("base16"),
     frame1527: makeNodeComponent("frame1527"),
     radio10: makeNodeComponent("radio10"),
+    checkbox11: makeNodeComponent("checkbox11"),
     frame1459: makeNodeComponent("frame1459"),
     visa4: makeNodeComponent("visa4"),
     base17: makeNodeComponent("base17"),
@@ -6410,6 +6935,7 @@ export const PlasmicHomepage = Object.assign(
     base20: makeNodeComponent("base20"),
     frame1528: makeNodeComponent("frame1528"),
     radio11: makeNodeComponent("radio11"),
+    checkbox12: makeNodeComponent("checkbox12"),
     frame1460: makeNodeComponent("frame1460"),
     visa5: makeNodeComponent("visa5"),
     base21: makeNodeComponent("base21"),
@@ -6423,16 +6949,17 @@ export const PlasmicHomepage = Object.assign(
     frame1530: makeNodeComponent("frame1530"),
     radio12: makeNodeComponent("radio12"),
     creditCard5: makeNodeComponent("creditCard5"),
+    checkbox14: makeNodeComponent("checkbox14"),
     frame1531: makeNodeComponent("frame1531"),
     radio13: makeNodeComponent("radio13"),
     creditCard6: makeNodeComponent("creditCard6"),
+    checkbox13: makeNodeComponent("checkbox13"),
     frame1462: makeNodeComponent("frame1462"),
     checkbox2: makeNodeComponent("checkbox2"),
-    component78: makeNodeComponent("component78"),
-    rectangle1109: makeNodeComponent("rectangle1109"),
     keepMeUpToDateOnNewsAndOffers: makeNodeComponent(
       "keepMeUpToDateOnNewsAndOffers"
     ),
+    checkbox15: makeNodeComponent("checkbox15"),
     frame1532: makeNodeComponent("frame1532"),
     frame1463: makeNodeComponent("frame1463"),
     frame1533: makeNodeComponent("frame1533"),
@@ -6461,7 +6988,7 @@ export const PlasmicHomepage = Object.assign(
     email7: makeNodeComponent("email7"),
     frame302: makeNodeComponent("frame302"),
     searchForSometingFun27: makeNodeComponent("searchForSometingFun27"),
-    searchForSometingFun28: makeNodeComponent("searchForSometingFun28"),
+    textInput13: makeNodeComponent("textInput13"),
     frame303: makeNodeComponent("frame303"),
     checkbox3: makeNodeComponent("checkbox3"),
     component79: makeNodeComponent("component79"),
@@ -6471,7 +6998,7 @@ export const PlasmicHomepage = Object.assign(
     ),
     buttons2: makeNodeComponent("buttons2"),
     frame1540: makeNodeComponent("frame1540"),
-    pay3439002: makeNodeComponent("pay3439002"),
+    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

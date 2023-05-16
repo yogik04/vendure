@@ -79,6 +79,90 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "checkbox"
+        },
+        {
+          "id": "cCj1_sGjvIg",
+          "name": "TextInput",
+          "type": "managed",
+          "projectId": "v6rm6377AjoXq4p4U21fc",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicTextInput.jsx",
+          "importSpec": {
+            "modulePath": "TextInput.jsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicTextInput.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "text-input"
+        },
+        {
+          "id": "fiUCxPZTvEF",
+          "name": "Select",
+          "type": "managed",
+          "projectId": "v6rm6377AjoXq4p4U21fc",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicSelect.jsx",
+          "importSpec": {
+            "modulePath": "Select.jsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicSelect.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "select"
+        },
+        {
+          "id": "xlfIBY0poSJ",
+          "name": "Select__Option",
+          "type": "managed",
+          "projectId": "v6rm6377AjoXq4p4U21fc",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicSelect__Option.jsx",
+          "importSpec": {
+            "modulePath": "Select__Option.jsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicSelect__Option.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "select-option"
+        },
+        {
+          "id": "cKxPDKVGaSq",
+          "name": "Select__OptionGroup",
+          "type": "managed",
+          "projectId": "v6rm6377AjoXq4p4U21fc",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicSelect__OptionGroup.jsx",
+          "importSpec": {
+            "modulePath": "Select__OptionGroup.jsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicSelect__OptionGroup.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "select-option-group"
+        },
+        {
+          "id": "XO6LGLA3mSf",
+          "name": "Select__Overlay",
+          "type": "managed",
+          "projectId": "v6rm6377AjoXq4p4U21fc",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicSelect__Overlay.jsx",
+          "importSpec": {
+            "modulePath": "Select__Overlay.jsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicSelect__Overlay.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "triggered-overlay"
+        },
+        {
+          "id": "zBoDUyhIZ2-",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "v6rm6377AjoXq4p4U21fc",
+          "renderModuleFilePath": "plasmic/blank_project/PlasmicButton.jsx",
+          "importSpec": {
+            "modulePath": "Button.jsx"
+          },
+          "cssFilePath": "plasmic/blank_project/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
         }
       ],
       "icons": [
@@ -166,6 +250,31 @@
           "id": "mIj6BFRh6Dp",
           "name": "SquareMinussvgIcon",
           "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__SquareMinussvg.jsx"
+        },
+        {
+          "id": "K53tSYkoj5Q",
+          "name": "SearchsvgIcon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Searchsvg.jsx"
+        },
+        {
+          "id": "_AQcRXCHxH7",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Checksvg.jsx"
+        },
+        {
+          "id": "5tudeucwJPc",
+          "name": "ChevronDownsvgIcon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__ChevronDownsvg.jsx"
+        },
+        {
+          "id": "w8HmcZ9bdYU",
+          "name": "ChevronUpsvgIcon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__ChevronUpsvg.jsx"
+        },
+        {
+          "id": "xYVnMnnxQ3S",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/blank_project/icons/PlasmicIcon__Icon2.jsx"
         }
       ],
       "images": [
