@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@plasmicapp/cli": "^0.1.275",
+    "@plasmicapp/cli": "^0.1.277",
     "@plasmicapp/react-web": "^0.2.210",
     "@plasmicpkgs/plasmic-query": "^0.0.150",
     "@testing-library/jest-dom": "^5.16.5",

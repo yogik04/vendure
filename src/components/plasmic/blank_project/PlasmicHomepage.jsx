@@ -46,7 +46,6 @@ import discoverM64ZgdKi0V from "./images/discover.svg"; // plasmic-import: m64ZG
 import maestroYhsOz8Lx8I from "./images/maestro.svg"; // plasmic-import: YHSOz8LX8I/picture
 import mastercard4WwLedzbKz from "./images/mastercard.svg"; // plasmic-import: 4WwLedzbKZ/picture
 import g12D0Q481ZoLh from "./images/g12.svg"; // plasmic-import: D0Q481ZoLH/picture
-import onWQrnijwPsu from "./images/on.svg"; // plasmic-import: WQrnijwPSU/picture
 import afterpayLogoOeWKxd5LOg from "./images/afterpayLogo.svg"; // plasmic-import: oeWKxd5LOg/picture
 import frame2994EfwKiv79E from "./images/frame299.svg"; // plasmic-import: 4EfwKIV79e/picture
 import frame298N3KvM0KGmL from "./images/frame298.svg"; // plasmic-import: n3kvM0KGmL-/picture
@@ -245,6 +244,12 @@ function PlasmicHomepage__RenderFunc(props) {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "checkbox16.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
 
@@ -877,6 +882,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )
                                     );
                                   }}
+                                  placeholder={"Company"}
                                   value={
                                     p.generateStateValueProp($state, [
                                       "textInput4",
@@ -940,6 +946,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )
                                     );
                                   }}
+                                  placeholder={"ADDRESS"}
                                   value={
                                     p.generateStateValueProp($state, [
                                       "textInput5",
@@ -1003,6 +1010,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )
                                     );
                                   }}
+                                  placeholder={"Apartments"}
                                   value={
                                     p.generateStateValueProp($state, [
                                       "textInput6",
@@ -1066,6 +1074,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )
                                     );
                                   }}
+                                  placeholder={"Suburb"}
                                   value={
                                     p.generateStateValueProp($state, [
                                       "textInput7",
@@ -1753,6 +1762,24 @@ function PlasmicHomepage__RenderFunc(props) {
                                       )}
                                     />
                                   ) : null}
+                                </div>
+                              ) : null}
+                              {true ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__eJgv
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__izW64
+                                    )}
+                                  >
+                                    {"5. Payments "}
+                                  </div>
                                 </div>
                               ) : null}
                               <div
@@ -2446,24 +2473,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                     sty.radio7
                                   )}
                                 >
-                                  <p.PlasmicImg
-                                    alt={""}
-                                    className={classNames(sty.img__atYfY)}
-                                    displayHeight={"18px"}
-                                    displayMaxHeight={"none"}
-                                    displayMaxWidth={"100%"}
-                                    displayMinHeight={"0"}
-                                    displayMinWidth={"0"}
-                                    displayWidth={"18px"}
-                                    loading={"lazy"}
-                                    src={{
-                                      src: onWQrnijwPsu,
-                                      fullWidth: 18,
-                                      fullHeight: 18,
-                                      aspectRatio: 1
-                                    }}
-                                  />
-
                                   <div
                                     data-plasmic-name={"afterpayLogo1"}
                                     data-plasmic-override={
@@ -2529,6 +2538,27 @@ function PlasmicHomepage__RenderFunc(props) {
                                       </div>
                                     </div>
                                   </div>
+                                  <Checkbox
+                                    data-plasmic-name={"checkbox16"}
+                                    data-plasmic-override={overrides.checkbox16}
+                                    children={null}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.checkbox16
+                                    )}
+                                    isChecked={
+                                      p.generateStateValueProp($state, [
+                                        "checkbox16",
+                                        "isChecked"
+                                      ]) ?? false
+                                    }
+                                    onChange={(...eventArgs) => {
+                                      p.generateStateOnChangeProp($state, [
+                                        "checkbox16",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }}
+                                  />
                                 </p.Stack>
                               </div>
                               <div
@@ -3729,7 +3759,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.text__jc49C
                                 )}
                               >
-                                {"$14.99"}
+                                {"N/A"}
                               </div>
                             </p.Stack>
                             <p.Stack
@@ -3758,7 +3788,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                   sty.text__s4O3O
                                 )}
                               >
-                                {"$9.95"}
+                                {"N/A"}
                               </div>
                             </p.Stack>
                             <div
@@ -3783,24 +3813,6 @@ function PlasmicHomepage__RenderFunc(props) {
                                 sty.group1463
                               )}
                             >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__q9Ytr
-                                )}
-                              >
-                                {"Including $2.26 in GST"}
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__yUQtx
-                                )}
-                              >
-                                {"Total"}
-                              </div>
                               <p.Stack
                                 as={"div"}
                                 data-plasmic-name={"frame1538"}
@@ -3815,21 +3827,52 @@ function PlasmicHomepage__RenderFunc(props) {
                                   className={classNames(
                                     projectcss.all,
                                     projectcss.__wab_text,
-                                    sty.text__mp95M
+                                    sty.text__jgaoI
                                   )}
                                 >
-                                  {"AUD"}
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__yjOq
-                                  )}
-                                >
-                                  {"$24.94"}
+                                  {(() => {
+                                    try {
+                                      return (
+                                        "$" +
+                                        $ctx.fetchedData.data.product
+                                          .variants[0].price
+                                      );
+                                    } catch (e) {
+                                      if (e instanceof TypeError) {
+                                        return "Enter some text";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
                                 </div>
                               </p.Stack>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__q74A4
+                                )}
+                              >
+                                <React.Fragment>
+                                  <span
+                                    className={
+                                      "plasmic_default__all plasmic_default__span"
+                                    }
+                                    style={{ fontWeight: 700 }}
+                                  >
+                                    {"Total"}
+                                  </span>
+                                </React.Fragment>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___5UsVo
+                                )}
+                              >
+                                {"Total"}
+                              </div>
                             </div>
                             <div
                               className={classNames(
@@ -3914,6 +3957,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                           )
                                         );
                                       }}
+                                      placeholder={"Optional"}
                                       value={
                                         p.generateStateValueProp($state, [
                                           "textInput13",
@@ -4019,6 +4063,7 @@ function PlasmicHomepage__RenderFunc(props) {
                                     color={"blue"}
                                     shape={"rounded"}
                                     size={"minimal"}
+                                    submitsForm={true}
                                   >
                                     <div
                                       className={classNames(
@@ -4240,6 +4285,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -4482,6 +4528,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -4723,6 +4770,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -4963,6 +5011,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -5202,6 +5251,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -5440,6 +5490,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -5939,6 +5990,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -6052,6 +6104,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -6149,6 +6202,7 @@ const PlasmicDescendants = {
     "symbolsNavigation",
     "fullHlogoutWishlist",
     "topNavLoggedOut",
+    "checkbox16",
     "frame1525",
     "radio8",
     "checkbox9",
@@ -6340,7 +6394,8 @@ const PlasmicDescendants = {
     "afterpayLogo1",
     "symbolsNavigation",
     "fullHlogoutWishlist",
-    "topNavLoggedOut"
+    "topNavLoggedOut",
+    "checkbox16"
   ],
 
   radio7: [
@@ -6348,7 +6403,8 @@ const PlasmicDescendants = {
     "afterpayLogo1",
     "symbolsNavigation",
     "fullHlogoutWishlist",
-    "topNavLoggedOut"
+    "topNavLoggedOut",
+    "checkbox16"
   ],
 
   afterpayLogo1: [
@@ -6366,6 +6422,7 @@ const PlasmicDescendants = {
 
   fullHlogoutWishlist: ["fullHlogoutWishlist", "topNavLoggedOut"],
   topNavLoggedOut: ["topNavLoggedOut"],
+  checkbox16: ["checkbox16"],
   frame1525: [
     "frame1525",
     "radio8",
@@ -6899,6 +6956,7 @@ export const PlasmicHomepage = Object.assign(
     symbolsNavigation: makeNodeComponent("symbolsNavigation"),
     fullHlogoutWishlist: makeNodeComponent("fullHlogoutWishlist"),
     topNavLoggedOut: makeNodeComponent("topNavLoggedOut"),
+    checkbox16: makeNodeComponent("checkbox16"),
     frame1525: makeNodeComponent("frame1525"),
     radio8: makeNodeComponent("radio8"),
     checkbox9: makeNodeComponent("checkbox9"),

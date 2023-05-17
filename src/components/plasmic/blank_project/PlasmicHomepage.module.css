@@ -1953,6 +1953,34 @@
     display: flex;
   }
 }
+.freeBox__eJgv {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  top: 0px;
+  left: 0px;
+  min-width: 0;
+  padding: 8px;
+}
+.text__izW64 {
+  display: block;
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0em;
+  line-height: 29px;
+  color: rgba(0, 0, 0, 1);
+  width: 196px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-left: 0px;
+  flex-shrink: 0;
+}
 .text__b2GGu {
   display: block;
   font-size: 14px;
@@ -2732,21 +2760,6 @@
   > img {
   margin-left: 12px;
 }
-.img__atYfY {
-  position: relative;
-  object-fit: cover;
-  max-width: 100%;
-  width: 18px;
-  height: 18px;
-  display: block !important;
-  flex-shrink: 0;
-}
-.img__atYfY > picture > img {
-  object-fit: cover;
-}
-.img__atYfY > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .afterpayLogo1 {
   width: 75px;
   height: 15px;
@@ -2795,6 +2808,10 @@
 }
 .img__o97S2 > :global(.__wab_img-spacer) > img {
   object-fit: cover;
+}
+.checkbox16:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
 }
 .frame1525 {
   background: rgba(255, 255, 255, 1);
@@ -4282,31 +4299,6 @@
   position: relative;
   flex-shrink: 0;
 }
-.text__q9Ytr {
-  display: block;
-  font-size: 12px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0em;
-  line-height: 20px;
-  color: rgba(129, 129, 129, 1);
-  position: absolute;
-  top: 30px;
-  left: 0px;
-  width: 126px;
-}
-.text__yUQtx {
-  display: block;
-  font-size: 16px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0em;
-  line-height: 20px;
-  color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 4px;
-  left: 0px;
-}
 .frame1538 {
   transform: translate(0.17000000000001592px, 0px);
   width: 96px;
@@ -4334,27 +4326,26 @@
   > img {
   margin-left: 8px;
 }
-.text__mp95M {
-  display: block;
-  font-size: 12px;
-  text-align: right;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0em;
-  line-height: 20px;
-  color: rgba(129, 129, 129, 1);
+.text__jgaoI {
   position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
-.text__yjOq {
-  display: block;
-  font-size: 20px;
-  text-align: right;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0em;
-  line-height: 28px;
-  color: rgba(0, 0, 0, 1);
-  position: relative;
+.text__q74A4 {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  min-width: 0;
+}
+.text___5UsVo {
+  position: absolute;
+  left: 0px;
+  top: 0px;
 }
 .freeBox___4POl4 {
   display: block;

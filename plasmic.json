@@ -49,7 +49,7 @@
     {
       "projectId": "v6rm6377AjoXq4p4U21fc",
       "projectApiToken": "8m78Fr9jfqKkGF9FvHcPpWtzPdTWIRwuRU3GXjQQWJ2g9FcnHQi5BpoSjTnt5QG3Dk84zoP3Ys0YjsWhzlw",
-      "projectName": "Blank project",
+      "projectName": "vendure",
       "version": "latest",
       "cssFilePath": "plasmic/blank_project/plasmic_blank_project.module.css",
       "components": [
@@ -366,6 +366,6 @@
     ]
   },
   "wrapPagesWithGlobalContexts": true,
-  "cliVersion": "0.1.275",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.275/dist/plasmic.schema.json"
+  "cliVersion": "0.1.277",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.277/dist/plasmic.schema.json"
 }
